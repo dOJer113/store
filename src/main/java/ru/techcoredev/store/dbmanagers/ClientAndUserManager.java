@@ -7,6 +7,8 @@ import ru.techcoredev.store.objects.User;
 public class ClientAndUserManager {
     public static void addUser(User user, Client client) {
         UserDBManager.addUser(user);
+        int userId = UserDBManager.getUserIdByEmail(user.getEmail());
+        client.setUserId(userId);
         ClientDBManager.addClient(client);
     }
 

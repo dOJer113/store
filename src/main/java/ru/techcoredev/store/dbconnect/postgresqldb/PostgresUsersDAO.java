@@ -12,6 +12,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PostgresUsersDAO implements UsersDAO {
+    private static final String INSERT_QUERY = "INSERT INTO users (email, role, password) VALUES (?, ?, ?)";
+    private static final String DELETE_QUERY = "DELETE FROM users WHERE userId = ?";
+    private static final String UPDATE_QUERY = "UPDATE users SET email = ?, role = ?, password = ? WHERE userId = ?";
+    private static final String SELECT_QUERY = "SELECT * FROM users";
     private Connection connection;
 
     public PostgresUsersDAO(Connection connection) {
@@ -20,11 +24,10 @@ public class PostgresUsersDAO implements UsersDAO {
 
     @Override
     public void insertUser(User user) {
-        String sql = "INSERT INTO users (email, role, password) VALUES (?, ?, ?)";
-        try (PreparedStatement statement = this.connection.prepareStatement(sql)) {
-            statement.setString(1, user.getEmail());
-            statement.setString(2, user.getRole().toString());
-            statement.setString(3, user.getPassword());
+        try (PreparedStatement statement = this.connection.prepareStatement(INSERT_QUERY)) {
+            statement.setString(PostgresDBDAOFactory.FIRST_INDEX, user.getEmail());
+            statement.setString(PostgresDBDAOFactory.SECOND_INDEX, user.getRole().toString().toLowerCase());
+            statement.setString(PostgresDBDAOFactory.THIRD_INDEX, user.getPassword());
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -33,9 +36,8 @@ public class PostgresUsersDAO implements UsersDAO {
 
     @Override
     public void deleteUser(int userId) {
-        String sql = "DELETE FROM users WHERE userId = ?";
-        try (PreparedStatement statement = this.connection.prepareStatement(sql)) {
-            statement.setInt(1, userId);
+        try (PreparedStatement statement = this.connection.prepareStatement(DELETE_QUERY)) {
+            statement.setInt(PostgresDBDAOFactory.FIRST_INDEX, userId);
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -45,12 +47,11 @@ public class PostgresUsersDAO implements UsersDAO {
 
     @Override
     public void updateUser(User user) {
-        String sql = "UPDATE users SET email = ?, role = ?, password = ? WHERE userId = ?";
-        try (PreparedStatement statement = this.connection.prepareStatement(sql)) {
-            statement.setString(1, user.getEmail());
-            statement.setString(2, user.getRole().toString());
-            statement.setString(3, user.getPassword());
-            statement.setInt(4, user.getUserId());
+        try (PreparedStatement statement = this.connection.prepareStatement(UPDATE_QUERY)) {
+            statement.setString(PostgresDBDAOFactory.FIRST_INDEX, user.getEmail());
+            statement.setString(PostgresDBDAOFactory.SECOND_INDEX, user.getRole().toString());
+            statement.setString(PostgresDBDAOFactory.THIRD_INDEX, user.getPassword());
+            statement.setInt(PostgresDBDAOFactory.FOURTH_INDEX, user.getUserId());
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -58,17 +59,31 @@ public class PostgresUsersDAO implements UsersDAO {
     }
 
     @Override
-    public List<User> getUsers() {
-        List<User> users = new ArrayList<>();
-        String sql = "SELECT * FROM users";
-        try (PreparedStatement statement = this.connection.prepareStatement(sql);
+    public int getUserIdByEmail(String email) {
+        try (PreparedStatement statement = this.connection.prepareStatement(SELECT_QUERY);
              ResultSet resultSet = statement.executeQuery()) {
             while (resultSet.next()) {
-                User user = new User(resultSet.getInt(1),
-                        resultSet.getInt(2),
-                        resultSet.getString(3),
-                        Role.valueOf(resultSet.getString(4)),
-                        resultSet.getString(5));
+                String currentEmail = resultSet.getString(PostgresDBDAOFactory.SECOND_INDEX);
+                if (email.equals(currentEmail)) {
+                    return resultSet.getInt(PostgresDBDAOFactory.FIRST_INDEX);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    @Override
+    public List<User> getUsers() {
+        List<User> users = new ArrayList<>();
+        try (PreparedStatement statement = this.connection.prepareStatement(SELECT_QUERY);
+             ResultSet resultSet = statement.executeQuery()) {
+            while (resultSet.next()) {
+                User user = new User(resultSet.getInt(PostgresDBDAOFactory.FIRST_INDEX),
+                        resultSet.getString(PostgresDBDAOFactory.SECOND_INDEX),
+                        Role.valueOf(resultSet.getString(PostgresDBDAOFactory.THIRD_INDEX)),
+                        resultSet.getString(PostgresDBDAOFactory.FOURTH_INDEX));
                 users.add(user);
             }
         } catch (SQLException e) {

@@ -11,9 +11,15 @@ import java.util.Locale;
 import java.util.Properties;
 
 public class PostgresDBDAOFactory extends DAOFactory {
-    public static final String URL = "";
-    public static final String USER = "alex";
+    public static final String URL = "jdbc:postgresql://localhost:5432/store";
+    public static final String USER = "postgres";
     public static final String PASSWORD = "12345";
+    public static final int FIRST_INDEX = 1;
+    public static final int SECOND_INDEX = 2;
+    public static final int THIRD_INDEX = 3;
+    public static final int FOURTH_INDEX = 4;
+    public static final int FIFTH_INDEX = 5;
+
     private static volatile PostgresDBDAOFactory instance;
     private Connection connection;
 

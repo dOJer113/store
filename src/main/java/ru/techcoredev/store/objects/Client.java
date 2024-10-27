@@ -7,20 +7,27 @@ public class Client {
     private String phoneNumber;
     private String address;
 
-    public Client(int clientId, String name, String surname, String phoneNumber, String address) {
-        this.userId = clientId;
+    public Client(String name, String surname, String phoneNumber, String address) {
         this.name = name;
         this.surname = surname;
         this.phoneNumber = phoneNumber;
         this.address = address;
     }
 
-    public int getClientId() {
+    public Client(int userId, String name, String surname, String phoneNumber, String address) {
+        this.userId = userId;
+        this.name = name;
+        this.surname = surname;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+    }
+
+    public int getUserId() {
         return this.userId;
     }
 
-    public void setClientId(int clientId) {
-        this.userId = clientId;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public String getName() {
@@ -62,7 +69,7 @@ public class Client {
 
         Client client = (Client) o;
 
-        if (getClientId() != client.getClientId()) return false;
+        if (getUserId() != client.getUserId()) return false;
         if (getName() != null ? !getName().equals(client.getName()) : client.getName() != null) return false;
         if (getSurname() != null ? !getSurname().equals(client.getSurname()) : client.getSurname() != null)
             return false;
@@ -73,7 +80,7 @@ public class Client {
 
     @Override
     public int hashCode() {
-        int result = getClientId();
+        int result = getUserId();
         result = 31 * result + (getName() != null ? getName().hashCode() : 0);
         result = 31 * result + (getSurname() != null ? getSurname().hashCode() : 0);
         result = 31 * result + (getPhoneNumber() != null ? getPhoneNumber().hashCode() : 0);
@@ -84,7 +91,7 @@ public class Client {
     @Override
     public String toString() {
         return "Client{" +
-                "clientId=" + userId +
+                "userId=" + userId +
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
