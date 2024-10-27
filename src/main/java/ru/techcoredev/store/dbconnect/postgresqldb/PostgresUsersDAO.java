@@ -1,5 +1,6 @@
 package ru.techcoredev.store.dbconnect.postgresqldb;
 
+import ru.techcoredev.store.ExceptionHandler;
 import ru.techcoredev.store.dbconnect.DAOinterfeices.UsersDAO;
 import ru.techcoredev.store.objects.Role;
 import ru.techcoredev.store.objects.User;
@@ -30,7 +31,7 @@ public class PostgresUsersDAO implements UsersDAO {
             statement.setString(PostgresDBDAOFactory.THIRD_INDEX, user.getPassword());
             statement.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
+            ExceptionHandler.handleException("Exception inserting user into db",e);
         }
     }
 
@@ -40,7 +41,7 @@ public class PostgresUsersDAO implements UsersDAO {
             statement.setInt(PostgresDBDAOFactory.FIRST_INDEX, userId);
             statement.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
+            ExceptionHandler.handleException("Exception deleting user from db",e);
         }
 
     }
@@ -54,7 +55,7 @@ public class PostgresUsersDAO implements UsersDAO {
             statement.setInt(PostgresDBDAOFactory.FOURTH_INDEX, user.getUserId());
             statement.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
+            ExceptionHandler.handleException("Exception updating user",e);
         }
     }
 
@@ -69,7 +70,7 @@ public class PostgresUsersDAO implements UsersDAO {
                 }
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            ExceptionHandler.handleException("Exception getting users from db",e);
         }
         return 0;
     }
@@ -87,7 +88,7 @@ public class PostgresUsersDAO implements UsersDAO {
                 users.add(user);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            ExceptionHandler.handleException("Exception getting users from db",e);
         }
         return users;
     }

@@ -1,5 +1,6 @@
 package ru.techcoredev.store.dbconnect.postgresqldb;
 
+import ru.techcoredev.store.ExceptionHandler;
 import ru.techcoredev.store.dbconnect.DAOinterfeices.ClientsDAO;
 import ru.techcoredev.store.objects.Client;
 
@@ -32,7 +33,7 @@ public class PostgresClientsDAO implements ClientsDAO {
             statement.setString(PostgresDBDAOFactory.FIFTH_INDEX, client.getAddress());
             statement.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
+            ExceptionHandler.handleException("Exception inserting client into db",e);
         }
     }
 
@@ -42,7 +43,7 @@ public class PostgresClientsDAO implements ClientsDAO {
             statement.setInt(PostgresDBDAOFactory.FIRST_INDEX, userId);
             statement.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
+            ExceptionHandler.handleException("Exception deleting client from db",e);
         }
     }
 
@@ -56,7 +57,7 @@ public class PostgresClientsDAO implements ClientsDAO {
             statement.setInt(PostgresDBDAOFactory.FIFTH_INDEX, client.getUserId());
             statement.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace();
+            ExceptionHandler.handleException("Exception updating client",e);
         }
     }
 
@@ -74,7 +75,7 @@ public class PostgresClientsDAO implements ClientsDAO {
                 clients.add(client);
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            ExceptionHandler.handleException("Exception getting clients from db",e);
         }
         return clients;
     }

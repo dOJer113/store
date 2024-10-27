@@ -1,5 +1,7 @@
 package ru.techcoredev.store.dbconnect.pool;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import ru.techcoredev.store.ExceptionHandler;
 import ru.techcoredev.store.dbconnect.DAOinterfeices.DBConfigurator;
 
@@ -19,6 +21,7 @@ public class ConnectionPool {
     private BlockingQueue<Connection> connectionQueue;
     private final Vector<Connection> usedConnections = new Vector<>();
     private final Properties connectionProperties = DBConfigurator.getProperties(FILE_PATH_PROPERTIES);
+    private static final Logger logger = LogManager.getLogger(ConnectionPool.class);
     private static ConnectionPool instance;
 
     private ConnectionPool() {
@@ -32,8 +35,8 @@ public class ConnectionPool {
             if (!this.connectionQueue.offer(connection)) {
                 throw new IllegalArgumentException("connection can`t be offered ");
             }
-
         }
+        logger.info("Connection pool was initialized");
     }
 
     public static ConnectionPool getInstance() {
@@ -51,6 +54,7 @@ public class ConnectionPool {
         Connection newConnection;
         if (this.connectionQueue.size() == 0) {
             newConnection = this.getConnection();
+            logger.warn("Connection queue is full! Added new connection");
         } else {
             newConnection = this.connectionQueue.poll();
         }
@@ -62,10 +66,10 @@ public class ConnectionPool {
         if (connection != null) {
             if (this.usedConnections.removeElement(connection)) {
                 if (!this.connectionQueue.offer(connection)) {
-                    throw new IllegalArgumentException("connection can`t be offered ");
+                    logger.error("connection can`t be offered");
                 }
             } else {
-                throw new NullPointerException("Connection not in the used connection");
+                logger.error("Connection not in the used connection");
             }
         }
     }
