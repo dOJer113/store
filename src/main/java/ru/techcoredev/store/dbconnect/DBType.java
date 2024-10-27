@@ -10,13 +10,7 @@ public enum DBType {
     POSTGRES {
         @Override
         public DAOFactory getDAOFactory() {
-            DAOFactory postgresDBDAOFactory = null;
-            try {
-                postgresDBDAOFactory = PostgresDBDAOFactory.getInstance();
-            } catch (ClassNotFoundException | SQLException e) {
-                e.printStackTrace();
-            }
-            return postgresDBDAOFactory;
+            return PostgresDBDAOFactory.getInstance();
         }
     };
 

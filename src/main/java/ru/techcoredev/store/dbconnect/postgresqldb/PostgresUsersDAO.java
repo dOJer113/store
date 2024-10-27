@@ -82,7 +82,7 @@ public class PostgresUsersDAO implements UsersDAO {
             while (resultSet.next()) {
                 User user = new User(resultSet.getInt(PostgresDBDAOFactory.FIRST_INDEX),
                         resultSet.getString(PostgresDBDAOFactory.SECOND_INDEX),
-                        Role.valueOf(resultSet.getString(PostgresDBDAOFactory.THIRD_INDEX)),
+                        Role.valueOf(resultSet.getString(PostgresDBDAOFactory.THIRD_INDEX).toUpperCase()),
                         resultSet.getString(PostgresDBDAOFactory.FOURTH_INDEX));
                 users.add(user);
             }
