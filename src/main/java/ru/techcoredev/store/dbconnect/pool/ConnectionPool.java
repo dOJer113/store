@@ -89,8 +89,9 @@ public class ConnectionPool {
     private Connection getConnection() {
         Connection connection = null;
         try {
+            Class.forName("org.postgresql.Driver");
             connection = DriverManager.getConnection(this.connectionProperties.getProperty("db.url"), this.connectionProperties);
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             ExceptionHandler.handleException("Exception connecting DB", e);
         }
         return (Connection) Proxy.newProxyInstance(

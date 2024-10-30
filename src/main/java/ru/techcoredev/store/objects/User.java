@@ -13,6 +13,12 @@ public class User {
         this.password = password;
     }
 
+    public User() {
+        this.userId = 0;
+        this.email = "null email";
+        this.password = "null password";
+    }
+
     public User(String email, Role role, String password) {
         this.email = email;
         this.role = role;
