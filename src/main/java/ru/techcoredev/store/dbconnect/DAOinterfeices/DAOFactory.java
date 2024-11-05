@@ -11,4 +11,9 @@ public abstract class DAOFactory {
     public abstract UsersDAO getUsersDAO();
 
     public abstract ClientsDAO getClientsDAO();
+    public abstract OrdersDAO getOrdersDAO();
+    public abstract ProductsDAO getProductDAO();
+    public abstract RolesDAO getRolesDAO();
+    public abstract StatusDAO getStatusDAO();
+
 }

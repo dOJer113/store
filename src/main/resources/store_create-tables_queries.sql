@@ -1,4 +1,5 @@
-create table roles (
+create table roles
+(
     role varchar(50) primary key
 );
 create table statuses
@@ -14,7 +15,7 @@ create table users
 );
 create table clients
 (
-    userId serial references users(userId),
+    userId      serial references users (userId),
     name        varchar(50)  not null,
     surname     varchar(50)  not null,
     phoneNumber varchar(20)  not null,
@@ -24,7 +25,7 @@ create table clients
 create table orders
 (
     number           serial primary key,
-    userId         integer references users (userId),
+    userId           integer references users (userId),
     registrationDate date not null,
     closingDate      date not null,
     status           varchar(50) references statuses (status)
@@ -34,7 +35,7 @@ create table products
     id          serial primary key,
     name        varchar(100) not null,
     description varchar(500),
-    password    varchar(30)  not null,
+    price       money      not null,
     remains     integer      not null
 );
 create table products_in_order

@@ -16,7 +16,7 @@ public class DBConfigurator {
         try (InputStream input = DBConfigurator.class.getClassLoader().getResourceAsStream(filePath)) {
             properties.load(input);
         } catch (IOException e) {
-            ExceptionHandler.handleException(new StringBuilder("Exception getting file ").append(filePath).toString(), e);
+            ExceptionHandler.handleException(new StringBuilder("Exception getting file properties for DB").append(filePath).toString(), e);
         }
         return properties;
     }

@@ -1,8 +1,6 @@
 package ru.techcoredev.store.dbconnect.postgresqldb;
 
-import ru.techcoredev.store.dbconnect.DAOinterfeices.ClientsDAO;
-import ru.techcoredev.store.dbconnect.DAOinterfeices.DAOFactory;
-import ru.techcoredev.store.dbconnect.DAOinterfeices.UsersDAO;
+import ru.techcoredev.store.dbconnect.DAOinterfeices.*;
 import ru.techcoredev.store.dbconnect.pool.ConnectionPool;
 
 import java.sql.Connection;
@@ -44,4 +42,25 @@ public class PostgresDBDAOFactory extends DAOFactory {
     public ClientsDAO getClientsDAO() {
         return new PostgresClientsDAO(connection);
     }
+
+    @Override
+    public OrdersDAO getOrdersDAO() {
+        return new PostgresOrdersDAO(connection);
+    }
+
+    @Override
+    public ProductsDAO getProductDAO() {
+        return new PostgresProductsDAO(connection);
+    }
+
+    @Override
+    public RolesDAO getRolesDAO() {
+        return new PostgresRolesDAO(connection);
+    }
+
+    @Override
+    public StatusDAO getStatusDAO() {
+        return new PostgresStatusesDAO(connection);
+    }
+
 }
