@@ -2,18 +2,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Menu</title>
+    <title>Меню</title>
 </head>
 <body>
-<h2>Choose an action</h2>
-<form action="${pageContext.request.contextPath}/users" method="get">
-    <input type="submit" value="Show all clients">
+<h2>Выберите действие</h2>
+<form action="${pageContext.request.contextPath}/entry" method="get">
+    <input type="submit" value="Вход">
 </form>
 <br>
-<form action="${pageContext.request.contextPath}/id" method="get">
-    <label for="id">Input id for search user:</label>
-    <input type="number" id="id" name="id" required><br>
-    <input type="submit" value="Search client by id">
+<form action="${pageContext.request.contextPath}/registration" method="get">
+    <input type="submit" value="Регистрация">
+</form>
+<br>
+<form action="${pageContext.request.contextPath}/admin" method="get">
+    <input type="submit" value="Секретная админская кнопка">
 </form>
 <br>
 </body>

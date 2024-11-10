@@ -19,6 +19,11 @@ public class User {
         this.password = "null password";
     }
 
+    public User(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
+
     public User(String email, Role role, String password) {
         this.email = email;
         this.role = role;
