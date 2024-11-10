@@ -17,6 +17,7 @@ public class PostgresUsersDAO implements UsersDAO {
     private static final String DELETE_QUERY = "DELETE FROM users WHERE userId = ?";
     private static final String UPDATE_QUERY = "UPDATE users SET email = ?, role = ?, password = ? WHERE userId = ?";
     private static final String SELECT_QUERY = "SELECT * FROM users";
+    private static final String SELECT_PASS_EMAIL = "select * from users where email = ? and password = ?";
     private Connection connection;
 
     public PostgresUsersDAO(Connection connection) {
@@ -31,7 +32,7 @@ public class PostgresUsersDAO implements UsersDAO {
             statement.setString(PostgresDBDAOFactory.THIRD_INDEX, user.getPassword());
             statement.executeUpdate();
         } catch (SQLException e) {
-            ExceptionHandler.handleException("Exception inserting user into db",e);
+            ExceptionHandler.handleException("Exception inserting user into db", e);
         }
     }
 
@@ -41,7 +42,7 @@ public class PostgresUsersDAO implements UsersDAO {
             statement.setInt(PostgresDBDAOFactory.FIRST_INDEX, userId);
             statement.executeUpdate();
         } catch (SQLException e) {
-            ExceptionHandler.handleException("Exception deleting user from db",e);
+            ExceptionHandler.handleException("Exception deleting user from db", e);
         }
 
     }
@@ -55,7 +56,7 @@ public class PostgresUsersDAO implements UsersDAO {
             statement.setInt(PostgresDBDAOFactory.FOURTH_INDEX, user.getUserId());
             statement.executeUpdate();
         } catch (SQLException e) {
-            ExceptionHandler.handleException("Exception updating user",e);
+            ExceptionHandler.handleException("Exception updating user", e);
         }
     }
 
@@ -70,7 +71,7 @@ public class PostgresUsersDAO implements UsersDAO {
                 }
             }
         } catch (SQLException e) {
-            ExceptionHandler.handleException("Exception getting users from db",e);
+            ExceptionHandler.handleException("Exception getting users from db", e);
         }
         return 0;
     }
@@ -88,8 +89,25 @@ public class PostgresUsersDAO implements UsersDAO {
                 users.add(user);
             }
         } catch (SQLException e) {
-            ExceptionHandler.handleException("Exception getting users from db",e);
+            ExceptionHandler.handleException("Exception getting users from db", e);
         }
         return users;
+    }
+
+    @Override
+    public User getUserByEmailPassword(String email, String password) {
+        User user = new User();
+        try (PreparedStatement statement = this.connection.prepareStatement(SELECT_PASS_EMAIL);
+             ResultSet resultSet = statement.executeQuery()) {
+            while (resultSet.next()) {
+                user = new User(resultSet.getInt(PostgresDBDAOFactory.FIRST_INDEX),
+                        resultSet.getString(PostgresDBDAOFactory.SECOND_INDEX),
+                        Role.valueOf(resultSet.getString(PostgresDBDAOFactory.THIRD_INDEX).toUpperCase()),
+                        resultSet.getString(PostgresDBDAOFactory.FOURTH_INDEX));
+            }
+        } catch (SQLException e) {
+            ExceptionHandler.handleException("Exception getting users from db", e);
+        }
+        return user;
     }
 }
