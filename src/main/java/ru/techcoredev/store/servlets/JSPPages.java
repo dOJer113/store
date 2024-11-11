@@ -3,9 +3,9 @@ package ru.techcoredev.store.servlets;
 
 public enum JSPPages {
 
-    ENTRY {
+    LOGIN {
         {
-            this.url = "/WEB-INF/view/entry.jsp";
+            this.url = "/WEB-INF/view/login.jsp";
         }
     },
     REGISTRATION {

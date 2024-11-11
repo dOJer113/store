@@ -11,15 +11,17 @@ import java.lang.reflect.Proxy;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Properties;
 import java.util.Vector;
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.LinkedBlockingQueue;
 
 public class ConnectionPool {
     public static final String FILE_PATH_PROPERTIES = "application.properties";
     private BlockingQueue<Connection> connectionQueue;
-    private final Vector<Connection> usedConnections = new Vector<>();
+    private final List<Connection> usedConnections = new CopyOnWriteArrayList<>();
     private final Properties connectionProperties = DBConfigurator.getProperties(FILE_PATH_PROPERTIES);
     private static final Logger logger = LogManager.getLogger(ConnectionPool.class);
     private static ConnectionPool instance;
@@ -58,13 +60,13 @@ public class ConnectionPool {
         } else {
             newConnection = this.connectionQueue.poll();
         }
-        this.usedConnections.addElement(newConnection);
+        this.usedConnections.add(newConnection);
         return newConnection;
     }
 
     public synchronized void putBack(Connection connection) {
         if (connection != null) {
-            if (this.usedConnections.removeElement(connection)) {
+            if (this.usedConnections.remove(connection)) {
                 if (!this.connectionQueue.offer(connection)) {
                     logger.error("connection can`t be offered");
                 }

@@ -3,8 +3,6 @@ package ru.techcoredev.store.servlets;
 
 import ru.techcoredev.store.dbmanagers.UserDBManager;
 import ru.techcoredev.store.objects.User;
-
-import javax.annotation.security.DeclareRoles;
 import javax.annotation.security.RolesAllowed;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,7 +13,6 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet("/users")
-@RolesAllowed("admin")
 public class AllServlet extends HttpServlet {
 
     @Override

@@ -7,7 +7,6 @@
 <body>
 <h2>Пользователи</h2>
 <c:choose>
-    <jsp:useBean id="noUsers" scope="request" type=""/>
     <c:when test="${not empty noUsers}">
         <p style="color: red;">Ошибка: ${noUsers}</p>
     </c:when>
