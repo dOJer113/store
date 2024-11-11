@@ -18,6 +18,7 @@ public class PostgresUsersDAO implements UsersDAO {
     private static final String UPDATE_QUERY = "UPDATE users SET email = ?, role = ?, password = ? WHERE userId = ?";
     private static final String SELECT_QUERY = "SELECT * FROM users";
     private static final String SELECT_PASS_EMAIL = "select * from users where email = ? and password = ?";
+    private static final String SELECT_ROLE = "SELECT role FROM users WHERE email = ?";
     private Connection connection;
 
     public PostgresUsersDAO(Connection connection) {
@@ -95,19 +96,29 @@ public class PostgresUsersDAO implements UsersDAO {
     }
 
     @Override
-    public User getUserByEmailPassword(String email, String password) {
-        User user = new User();
-        try (PreparedStatement statement = this.connection.prepareStatement(SELECT_PASS_EMAIL);
-             ResultSet resultSet = statement.executeQuery()) {
-            while (resultSet.next()) {
-                user = new User(resultSet.getInt(PostgresDBDAOFactory.FIRST_INDEX),
-                        resultSet.getString(PostgresDBDAOFactory.SECOND_INDEX),
-                        Role.valueOf(resultSet.getString(PostgresDBDAOFactory.THIRD_INDEX).toUpperCase()),
-                        resultSet.getString(PostgresDBDAOFactory.FOURTH_INDEX));
+    public boolean getUserByEmailPassword(String email, String password) {
+        try (PreparedStatement statement = this.connection.prepareStatement(SELECT_PASS_EMAIL)) {
+            statement.setString(PostgresDBDAOFactory.FIRST_INDEX, email);
+            statement.setString(PostgresDBDAOFactory.SECOND_INDEX, password);
+            ResultSet resultSet = statement.executeQuery();
+            return resultSet.next();
+        } catch (SQLException e) {
+            ExceptionHandler.handleException("Exception getting user by email and password from db", e);
+        }
+        return false;
+    }
+
+    @Override
+    public String getRoleByEmail(String email) {
+        try (PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ROLE)) {
+            preparedStatement.setString(PostgresDBDAOFactory.FIRST_INDEX, email);
+            ResultSet rs = preparedStatement.executeQuery();
+            if (rs.next()) {
+                return rs.getString(PostgresDBDAOFactory.FIRST_INDEX);
             }
         } catch (SQLException e) {
-            ExceptionHandler.handleException("Exception getting users from db", e);
+            ExceptionHandler.handleException("Exception getting users role by email", e);
         }
-        return user;
+        return null;
     }
 }
