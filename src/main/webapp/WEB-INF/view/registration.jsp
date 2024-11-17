@@ -28,5 +28,14 @@
 
     <input type="submit" value="Регистрация">
 </form>
+<%
+    String exception = (String) session.getAttribute("exception");
+    if (exception != null) {
+%>
+<p style="color: red;">${exception}</p>
+<%
+        session.removeAttribute("exception");
+    }
+%>
 </body>
 </html>

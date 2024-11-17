@@ -1,27 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="store:war exploded" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb4d38dd-e1fd-4a47-81ea-f3b57d074790" name="Changes" comment="added creating queries table">
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/DAOinterfeices/ClientsDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/DAOinterfeices/DAOFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/DAOinterfeices/UsersDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/postgresqldb/PostgresClientsDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/postgresqldb/PostgresDBDAOFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/postgresqldb/PostgresUsersDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbmanagers/ClientAndUserManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbmanagers/ClientDBManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbmanagers/UserDBManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/objects/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/objects/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/objects/User.java" afterDir="false" />
+    <list default="true" id="cb4d38dd-e1fd-4a47-81ea-f3b57d074790" name="Changes" comment="small changes">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/servlets/LogoutServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/servlets/SuccessServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/servlets/filters/AdminFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/servlets/filters/ClientFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/success.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Shema_DB_Store.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Shema_DB_Store.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/store_create-tables_queries.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/store_create-tables_queries.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/DAOinterfeices/UsersDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/DAOinterfeices/UsersDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/postgresqldb/PostgresUsersDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/postgresqldb/PostgresUsersDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbmanagers/ClientAndUserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbmanagers/ClientAndUserManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbmanagers/UserDBManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbmanagers/UserDBManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/objects/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/objects/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/objects/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/objects/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/objects/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/objects/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/objects/fabrics/ClientFabricForRegistration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/objects/fabrics/ClientFabricForRegistration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/objects/fabrics/UserFabricForRegistration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/objects/fabrics/UserFabricForRegistration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/servlets/AllServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/servlets/AllServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/servlets/IdServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/servlets/IdServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/servlets/JSPPages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/servlets/JSPPages.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/servlets/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/servlets/LoginServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/servlets/RegistrationServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/servlets/RegistrationServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/META-INF/contex.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/adminMenu.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/adminMenu.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/registration.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/registration.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,27 +60,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Java/java pr/допы/store&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "D:/Java/java pr/допы/store/src/main/webapp/WEB-INF/view",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;redshift&quot;,
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "redshift",
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Java\java pr\допы\store\src\main\webapp\WEB-INF\view" />
       <recent name="D:\Java\java pr\допы\store\src\main\java\ru\techcoredev\store" />
       <recent name="D:\Java\java pr\допы\store\src\main\resources" />
     </key>
@@ -76,16 +91,81 @@
       <deployment>
         <artifact name="store:war exploded">
           <settings>
-            <option name="CONTEXT_PATH" value="/store_war_exploded" />
+            <option name="CONTEXT_PATH" value="/" />
           </settings>
         </artifact>
       </deployment>
-      <server-settings />
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="0e52ac50-8143-4b9e-85b4-0381c2370676" />
+      </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
       <predefined_log_file id="Tomcat Manager" />
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="51664" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
       <method v="2">
         <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
@@ -113,6 +193,8 @@
       <workItem from="1729767647863" duration="1266000" />
       <workItem from="1729970765173" duration="1871000" />
       <workItem from="1729975417091" duration="2682000" />
+      <workItem from="1731664509830" duration="410000" />
+      <workItem from="1731840863642" duration="7893000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -136,6 +218,10 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="java:javax.ejb:ejb-api" />
+    <option featureType="dependencySupport" implementationName="maven-packaging:war" />
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
@@ -151,5 +237,41 @@
     <MESSAGE value="init" />
     <MESSAGE value="added creating queries table" />
     <option name="LAST_COMMIT_MESSAGE" value="added creating queries table" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/techcoredev/store/servlets/IdServlet.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/techcoredev/store/servlets/IdServlet.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/techcoredev/store/servlets/RegistrationServlet.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbmanagers/ClientAndUserManager.java</url>
+          <line>12</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Main.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/techcoredev/store/servlets/RegistrationServlet.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

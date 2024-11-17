@@ -6,7 +6,7 @@
 </head>
 <body>
 <h2>Выберите действие</h2>
-<form action="${pageContext.request.contextPath}/entry" method="get">
+<form action="${pageContext.request.contextPath}/login" method="get">
     <input type="submit" value="Вход">
 </form>
 <br>
@@ -14,9 +14,9 @@
     <input type="submit" value="Регистрация">
 </form>
 <br>
-<form action="${pageContext.request.contextPath}/admin" method="get">
+<%--<form action="${pageContext.request.contextPath}/admin" method="get">
     <input type="submit" value="Секретная админская кнопка">
-</form>
+</form>--%>
 <br>
 </body>
 </html>

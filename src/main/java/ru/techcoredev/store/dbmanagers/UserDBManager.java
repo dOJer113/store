@@ -15,7 +15,7 @@ public class UserDBManager {
         return DAOFactory.getInstance(DBType.POSTGRES).getUsersDAO().getUsers();
     }
 
-    public static boolean getUserEmailPassword(String email, String password) {
+    public static User getUserEmailPassword(String email, String password) {
         return DAOFactory.getInstance(DBType.POSTGRES).getUsersDAO().getUserByEmailPassword(email, password);
     }
 

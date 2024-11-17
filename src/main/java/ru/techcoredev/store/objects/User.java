@@ -17,6 +17,7 @@ public class User {
         this.userId = 0;
         this.email = "null email";
         this.password = "null password";
+        this.role = Role.NO_USER;
     }
 
     public User(String email, String password) {

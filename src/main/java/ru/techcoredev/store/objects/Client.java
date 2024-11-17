@@ -1,6 +1,7 @@
 package ru.techcoredev.store.objects;
 
 public class Client {
+    public static final String NO_USER_NAME = "no_user";
     private int userId;
     private String name;
     private String surname;
@@ -24,10 +25,10 @@ public class Client {
 
     public Client() {
         this.userId = 0;
-        this.name = "";
-        this.surname = "";
-        this.phoneNumber = "";
-        this.address = "";
+        this.name = NO_USER_NAME;
+        this.surname = "no_surname";
+        this.phoneNumber = "no_phone";
+        this.address = "no_address";
     }
 
     public int getUserId() {

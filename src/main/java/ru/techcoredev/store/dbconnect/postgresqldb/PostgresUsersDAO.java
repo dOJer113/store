@@ -96,16 +96,23 @@ public class PostgresUsersDAO implements UsersDAO {
     }
 
     @Override
-    public boolean getUserByEmailPassword(String email, String password) {
+    public User getUserByEmailPassword(String emailToSearch, String passwordToSearch) {
         try (PreparedStatement statement = this.connection.prepareStatement(SELECT_PASS_EMAIL)) {
-            statement.setString(PostgresDBDAOFactory.FIRST_INDEX, email);
-            statement.setString(PostgresDBDAOFactory.SECOND_INDEX, password);
+            statement.setString(PostgresDBDAOFactory.FIRST_INDEX, emailToSearch);
+            statement.setString(PostgresDBDAOFactory.SECOND_INDEX, passwordToSearch);
             ResultSet resultSet = statement.executeQuery();
-            return resultSet.next();
+            if (resultSet.next()) {
+                int id = resultSet.getInt(PostgresDBDAOFactory.FIRST_INDEX);
+                String email = resultSet.getString(PostgresDBDAOFactory.SECOND_INDEX);
+                Role role = Role.valueOf(resultSet.getString(PostgresDBDAOFactory.THIRD_INDEX).toUpperCase());
+                String password = resultSet.getString(PostgresDBDAOFactory.FOURTH_INDEX);
+                User user = new User(id, email, role, password);
+                return user;
+            }
         } catch (SQLException e) {
             ExceptionHandler.handleException("Exception getting user by email and password from db", e);
         }
-        return false;
+        return new User();
     }
 
     @Override

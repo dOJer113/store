@@ -16,7 +16,7 @@ public interface UsersDAO {
 
     List<User> getUsers();
 
-    boolean getUserByEmailPassword(String email, String password);
+    User getUserByEmailPassword(String email, String password);
 
     String getRoleByEmail(String email);
 }

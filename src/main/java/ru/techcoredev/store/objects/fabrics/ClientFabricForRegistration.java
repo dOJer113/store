@@ -11,7 +11,6 @@ public class ClientFabricForRegistration {
             return new Client(name, surname, phoneNumber, address);
         }
         return new Client();
-        //todo сделать оповещение что клиент пустой
     }
 
     private static boolean isValidClient(String name, String surname, String phoneNumber, String address) {
@@ -19,14 +18,17 @@ public class ClientFabricForRegistration {
     }
 
     private static boolean isValidName(String name) {
-        return name != null && name.matches("^[a-zA-Zа-яА-Я\\s]{2,50}$");
+        boolean flag = name != null && name.matches("^[a-zA-Zа-яА-Я\\s]{2,50}$");
+        return flag;
     }
 
     private static boolean isValidPhoneNumber(String phoneNumber) {
-        return phoneNumber != null && phoneNumber.matches("^\\+7 \\(\\d{3}\\) \\d{3}-\\d{2}-\\d{2}$");
+        boolean flag = phoneNumber != null && phoneNumber.matches("^\\+7 \\(\\d{3}\\) \\d{3}-\\d{2}-\\d{2}$");
+        return flag;
     }
 
     private static boolean isValidAddress(String address) {
-        return address != null && address.matches("^[a-zA-Zа-яА-Я0-9\\s\\,\\.\\-]{5,300}$");
+        boolean flag = address != null && address.matches("^[a-zA-Zа-яА-Я0-9\\s\\,\\.\\-]{5,300}$");
+        return flag;
     }
 }
