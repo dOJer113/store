@@ -1,5 +1,6 @@
 package ru.techcoredev.store.servlets;
 
+import ru.techcoredev.store.dbconnect.DBType;
 import ru.techcoredev.store.dbmanagers.ClientAndUserManager;
 
 import javax.annotation.security.PermitAll;
@@ -26,7 +27,7 @@ public class RegistrationServlet extends HttpServlet {
         String surname = req.getParameter("surname");
         String phone = req.getParameter("phone");
         String address = req.getParameter("address");
-        if (ClientAndUserManager.addUserAndClient(email, password, name, surname, phone, address)) {
+        if (new ClientAndUserManager(DBType.HIBERNATE_POSTGRES).addUserAndClient(email, password, name, surname, phone, address)) {
             resp.sendRedirect(req.getContextPath() + "/success");
         } else {
             req.getSession().setAttribute("exception", "Ошибка! Регистрация отклонена");

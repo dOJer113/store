@@ -53,14 +53,5 @@ public class PostgresDBDAOFactory extends DAOFactory {
         return new PostgresProductsDAO(connection);
     }
 
-    @Override
-    public RolesDAO getRolesDAO() {
-        return new PostgresRolesDAO(connection);
-    }
-
-    @Override
-    public StatusDAO getStatusDAO() {
-        return new PostgresStatusesDAO(connection);
-    }
 
 }

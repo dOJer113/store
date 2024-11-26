@@ -1,6 +1,7 @@
 package ru.techcoredev.store.servlets;
 
 
+import ru.techcoredev.store.dbconnect.DBType;
 import ru.techcoredev.store.dbmanagers.UserDBManager;
 import ru.techcoredev.store.objects.User;
 
@@ -19,7 +20,7 @@ public class AllServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request,
                          HttpServletResponse response) throws IOException, ServletException {
-        List<User> userList = UserDBManager.getUsers();
+        List<User> userList = new UserDBManager(DBType.HIBERNATE_POSTGRES).getUsers();
         if (userList.size() == 0) {
             request.setAttribute("noUsers", "В базе данных нет пользователей!");
         } else {

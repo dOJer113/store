@@ -10,32 +10,42 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb4d38dd-e1fd-4a47-81ea-f3b57d074790" name="Changes" comment="small changes">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/servlets/LogoutServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/servlets/SuccessServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/servlets/filters/AdminFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/servlets/filters/ClientFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/success.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/hibernate/HibernateDAOFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/hibernate/HibernateOrdersDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/hibernate/HibernateProductsDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/hibernate/TransactionServices.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/hibernate.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/DAOinterfeices/ClientsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/DAOinterfeices/ClientsDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/DAOinterfeices/DAOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/DAOinterfeices/DAOFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/DAOinterfeices/OrdersDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/DAOinterfeices/OrdersDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/DAOinterfeices/ProductsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/DAOinterfeices/ProductsDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/DAOinterfeices/RolesDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/DAOinterfeices/StatusDAO.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/DAOinterfeices/UsersDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/DAOinterfeices/UsersDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/DBType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/DBType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/postgresqldb/PostgresClientsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/postgresqldb/PostgresClientsDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/postgresqldb/PostgresDBDAOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/postgresqldb/PostgresDBDAOFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/postgresqldb/PostgresOrdersDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/postgresqldb/PostgresOrdersDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/postgresqldb/PostgresProductsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/postgresqldb/PostgresProductsDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/postgresqldb/PostgresRolesDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/postgresqldb/PostgresStatusesDAO.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/postgresqldb/PostgresUsersDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/postgresqldb/PostgresUsersDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbmanagers/ClientAndUserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbmanagers/ClientAndUserManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbmanagers/ClientDBManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbmanagers/ClientDBManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbmanagers/OrdersManger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbmanagers/OrdersManger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbmanagers/ProductsManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbmanagers/ProductsManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbmanagers/UserDBManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbmanagers/UserDBManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/objects/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/objects/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/objects/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/objects/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/objects/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/objects/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/objects/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/objects/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/objects/ProductsInOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/objects/ProductsInOrder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/objects/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/objects/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/objects/fabrics/ClientFabricForRegistration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/objects/fabrics/ClientFabricForRegistration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/objects/fabrics/UserFabricForRegistration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/objects/fabrics/UserFabricForRegistration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/servlets/AllServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/servlets/AllServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/servlets/IdServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/servlets/IdServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/servlets/JSPPages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/servlets/JSPPages.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/servlets/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/servlets/LoginServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/servlets/RegistrationServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/servlets/RegistrationServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/classes/META-INF/contex.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/adminMenu.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/adminMenu.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/registration.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/registration.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +63,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="ProjectId" id="2nWyXjaBkoPuncebGG4LXWoTobv" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -67,10 +78,10 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "D:/Java/java pr/допы/store/src/main/webapp/WEB-INF/view",
+    "last_opened_file_path": "D:/Java/java pr/допы/store",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+    "settings.editor.selected.configurable": "project.propDebugger"
   },
   "keyToStringList": {
     "DatabaseDriversLRU": [
@@ -81,13 +92,26 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Java\java pr\допы\store\src\main\webapp\WEB-INF\view" />
-      <recent name="D:\Java\java pr\допы\store\src\main\java\ru\techcoredev\store" />
+      <recent name="D:\Java\java pr\допы\store\src\main\webapp" />
+      <recent name="D:\Java\java pr\допы\store\src\main\webapp\WEB-INF\classes" />
+      <recent name="D:\Java\java pr\допы\store\src\main\java\ru\techcoredev\store\dbconnect\hibernate" />
       <recent name="D:\Java\java pr\допы\store\src\main\resources" />
+      <recent name="D:\Java\java pr\допы\store\src\main\webapp\WEB-INF\view" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="ru.techcoredev.store.dbconnect.hibernate" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="Tomcat 9.0.90" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.90" ALTERNATIVE_JRE_ENABLED="false">
+  <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.90">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="store" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tomcat 9.0.90" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.90" ALTERNATIVE_JRE_ENABLED="false" show_console_on_std_err="true" show_console_on_std_out="true">
+      <option name="BROWSER_ID" value="37cae5b9-e8b2-4949-9172-aafa37fbc09c" />
       <deployment>
         <artifact name="store:war exploded">
           <settings>
@@ -104,7 +128,7 @@
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="51664" />
+        <option name="DEBUG_PORT" value="51667" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -173,6 +197,15 @@
         </option>
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Tomcat Server.Tomcat 9.0.90" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -195,6 +228,13 @@
       <workItem from="1729975417091" duration="2682000" />
       <workItem from="1731664509830" duration="410000" />
       <workItem from="1731840863642" duration="7893000" />
+      <workItem from="1732448931085" duration="6041000" />
+      <workItem from="1732455182773" duration="2496000" />
+      <workItem from="1732457875311" duration="1438000" />
+      <workItem from="1732463188470" duration="15000" />
+      <workItem from="1732472192332" duration="6103000" />
+      <workItem from="1732548111482" duration="612000" />
+      <workItem from="1732623863549" duration="492000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -238,40 +278,8 @@
     <MESSAGE value="added creating queries table" />
     <option name="LAST_COMMIT_MESSAGE" value="added creating queries table" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ru/techcoredev/store/servlets/IdServlet.java</url>
-          <line>18</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ru/techcoredev/store/servlets/IdServlet.java</url>
-          <line>23</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ru/techcoredev/store/servlets/RegistrationServlet.java</url>
-          <line>32</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbmanagers/ClientAndUserManager.java</url>
-          <line>12</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Main.java</url>
-          <line>16</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ru/techcoredev/store/servlets/RegistrationServlet.java</url>
-          <line>21</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

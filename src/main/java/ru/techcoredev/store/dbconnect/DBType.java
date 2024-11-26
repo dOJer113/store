@@ -2,15 +2,20 @@ package ru.techcoredev.store.dbconnect;
 
 
 import ru.techcoredev.store.dbconnect.DAOinterfeices.DAOFactory;
+import ru.techcoredev.store.dbconnect.hibernate.HibernateDAOFactory;
 import ru.techcoredev.store.dbconnect.postgresqldb.PostgresDBDAOFactory;
-
-import java.sql.SQLException;
 
 public enum DBType {
     POSTGRES {
         @Override
         public DAOFactory getDAOFactory() {
             return PostgresDBDAOFactory.getInstance();
+        }
+    },
+    HIBERNATE_POSTGRES {
+        @Override
+        public DAOFactory getDAOFactory() {
+            return HibernateDAOFactory.getInstance();
         }
     };
 

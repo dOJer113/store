@@ -7,20 +7,27 @@ import ru.techcoredev.store.objects.Product;
 import java.util.List;
 
 public class ProductsManager {
+    private static DBType dbType;
+
+    public static void getInstance(DBType dbType) {
+        ProductsManager.dbType = dbType;
+    }
     public static void createProduct(Product product) {
-        DAOFactory.getInstance(DBType.POSTGRES).getProductDAO().createProduct(product);
+        DAOFactory.getInstance(dbType).getProductDAO().createProduct(product);
     }
 
     public static List<Product> getProducts() {
-        return DAOFactory.getInstance(DBType.POSTGRES).getProductDAO().getProducts();
+        return DAOFactory.getInstance(dbType).getProductDAO().getProducts();
     }
 
     public static void updateProduct(Product product) {
-        DAOFactory.getInstance(DBType.POSTGRES).getProductDAO().updateProduct(product);
+        DAOFactory.getInstance(dbType).getProductDAO().updateProduct(product);
     }
 
-    public static void deleteProduct(int productId) {
-        DAOFactory.getInstance(DBType.POSTGRES).getProductDAO().deleteProduct(productId);
+    public static void deleteProduct(Product product) {
+        DAOFactory.getInstance(dbType).getProductDAO().deleteProduct(
+                product
+        );
     }
 
 }

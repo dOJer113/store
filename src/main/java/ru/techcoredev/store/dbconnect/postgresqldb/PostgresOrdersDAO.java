@@ -37,9 +37,9 @@ public class PostgresOrdersDAO implements OrdersDAO {
     }
 
     @Override
-    public void deleteOrder(int orderId) {
+    public void deleteOrder(Order order) {
         try (PreparedStatement statement = this.connection.prepareStatement(DELETE_QUERY)) {
-            statement.setInt(PostgresDBDAOFactory.FIRST_INDEX, orderId);
+            statement.setInt(PostgresDBDAOFactory.FIRST_INDEX, order.getNumber());
             statement.executeUpdate();
         } catch (SQLException e) {
             ExceptionHandler.handleException("Exception deleting order from db", e);

@@ -38,9 +38,9 @@ public class PostgresUsersDAO implements UsersDAO {
     }
 
     @Override
-    public void deleteUser(int userId) {
+    public void deleteUser(User user) {
         try (PreparedStatement statement = this.connection.prepareStatement(DELETE_QUERY)) {
-            statement.setInt(PostgresDBDAOFactory.FIRST_INDEX, userId);
+            statement.setInt(PostgresDBDAOFactory.FIRST_INDEX, user.getUserId());
             statement.executeUpdate();
         } catch (SQLException e) {
             ExceptionHandler.handleException("Exception deleting user from db", e);
@@ -116,12 +116,12 @@ public class PostgresUsersDAO implements UsersDAO {
     }
 
     @Override
-    public String getRoleByEmail(String email) {
+    public Role getRoleByEmail(String email) {
         try (PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ROLE)) {
             preparedStatement.setString(PostgresDBDAOFactory.FIRST_INDEX, email);
             ResultSet rs = preparedStatement.executeQuery();
             if (rs.next()) {
-                return rs.getString(PostgresDBDAOFactory.FIRST_INDEX);
+                return Role.valueOf(rs.getString(PostgresDBDAOFactory.FIRST_INDEX));
             }
         } catch (SQLException e) {
             ExceptionHandler.handleException("Exception getting users role by email", e);

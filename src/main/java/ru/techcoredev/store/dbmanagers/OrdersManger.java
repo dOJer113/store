@@ -7,19 +7,25 @@ import ru.techcoredev.store.objects.Order;
 import java.util.List;
 
 public class OrdersManger {
-    public static void createOrder(Order order) {
-        DAOFactory.getInstance(DBType.POSTGRES).getOrdersDAO().createOrder(order);
+    private DBType dbType;
+
+    public OrdersManger(DBType dbType) {
+        this.dbType = dbType;
     }
 
-    public static List<Order> getOrders() {
-        return DAOFactory.getInstance(DBType.POSTGRES).getOrdersDAO().getOrders();
+    public void createOrder(Order order) {
+        DAOFactory.getInstance(dbType).getOrdersDAO().createOrder(order);
     }
 
-    public static void updateOrder(Order order) {
-        DAOFactory.getInstance(DBType.POSTGRES).getOrdersDAO().updateOrder(order);
+    public List<Order> getOrders() {
+        return DAOFactory.getInstance(dbType).getOrdersDAO().getOrders();
     }
 
-    public static void deleteOrder(int orderId) {
-        DAOFactory.getInstance(DBType.POSTGRES).getOrdersDAO().deleteOrder(orderId);
+    public void updateOrder(Order order) {
+        DAOFactory.getInstance(dbType).getOrdersDAO().updateOrder(order);
+    }
+
+    public void deleteOrder(Order order) {
+        DAOFactory.getInstance(dbType).getOrdersDAO().deleteOrder(order);
     }
 }

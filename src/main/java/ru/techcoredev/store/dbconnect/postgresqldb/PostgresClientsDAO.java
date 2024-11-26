@@ -3,6 +3,7 @@ package ru.techcoredev.store.dbconnect.postgresqldb;
 import ru.techcoredev.store.ExceptionHandler;
 import ru.techcoredev.store.dbconnect.DAOinterfeices.ClientsDAO;
 import ru.techcoredev.store.objects.Client;
+import ru.techcoredev.store.objects.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -38,9 +39,9 @@ public class PostgresClientsDAO implements ClientsDAO {
     }
 
     @Override
-    public void deleteClient(int userId) {
+    public void deleteClient(Client client) {
         try (PreparedStatement statement = this.connection.prepareStatement(DELETE_QUERY)) {
-            statement.setInt(PostgresDBDAOFactory.FIRST_INDEX, userId);
+            statement.setInt(PostgresDBDAOFactory.FIRST_INDEX, client.getUserId());
             statement.executeUpdate();
         } catch (SQLException e) {
             ExceptionHandler.handleException("Exception deleting client from db",e);

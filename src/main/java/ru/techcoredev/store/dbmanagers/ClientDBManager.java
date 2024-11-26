@@ -7,20 +7,26 @@ import ru.techcoredev.store.objects.Client;
 import java.util.List;
 
 public class ClientDBManager {
-    public static void updateClient(Client client) {
-        DAOFactory.getInstance(DBType.POSTGRES).getClientsDAO().updateClient(client);
+    private DBType dbType;
+
+    public ClientDBManager(DBType dbType) {
+        this.dbType = dbType;
     }
 
-    public static List<Client> getClients() {
-        return DAOFactory.getInstance(DBType.POSTGRES).getClientsDAO().getClients();
+    public void updateClient(Client client) {
+        DAOFactory.getInstance(dbType).getClientsDAO().updateClient(client);
     }
 
-    protected static void addClient(Client client) {
-        DAOFactory.getInstance(DBType.POSTGRES).getClientsDAO().insertClient(client);
+    public List<Client> getClients() {
+        return DAOFactory.getInstance(dbType).getClientsDAO().getClients();
     }
 
-    protected static void deleteClient(int userId) {
-        DAOFactory.getInstance(DBType.POSTGRES).getClientsDAO().deleteClient(userId);
+    protected void addClient(Client client) {
+        DAOFactory.getInstance(dbType).getClientsDAO().insertClient(client);
+    }
+
+    protected void deleteClient(Client client) {
+        DAOFactory.getInstance(dbType).getClientsDAO().deleteClient(client);
     }
 
 

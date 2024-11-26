@@ -2,37 +2,44 @@ package ru.techcoredev.store.dbmanagers;
 
 import ru.techcoredev.store.dbconnect.DAOinterfeices.DAOFactory;
 import ru.techcoredev.store.dbconnect.DBType;
+import ru.techcoredev.store.objects.Role;
 import ru.techcoredev.store.objects.User;
 
 import java.util.List;
 
 public class UserDBManager {
-    public static void updateUser(User user) {
-        DAOFactory.getInstance(DBType.POSTGRES).getUsersDAO().updateUser(user);
+    private DBType dbType;
+
+    public UserDBManager(DBType dbType) {
+        this.dbType = dbType;
     }
 
-    public static List<User> getUsers() {
-        return DAOFactory.getInstance(DBType.POSTGRES).getUsersDAO().getUsers();
+    public void updateUser(User user) {
+        DAOFactory.getInstance(dbType).getUsersDAO().updateUser(user);
     }
 
-    public static User getUserEmailPassword(String email, String password) {
-        return DAOFactory.getInstance(DBType.POSTGRES).getUsersDAO().getUserByEmailPassword(email, password);
+    public List<User> getUsers() {
+        return DAOFactory.getInstance(dbType).getUsersDAO().getUsers();
     }
 
-    public static String getRoleByEmail(String email){
-        return DAOFactory.getInstance(DBType.POSTGRES).getUsersDAO().getRoleByEmail(email);
+    public User getUserEmailPassword(String email, String password) {
+        return DAOFactory.getInstance(dbType).getUsersDAO().getUserByEmailPassword(email, password);
     }
 
-    protected static int getUserIdByEmail(String email) {
-        return DAOFactory.getInstance(DBType.POSTGRES).getUsersDAO().getUserIdByEmail(email);
+    public Role getRoleByEmail(String email) {
+        return DAOFactory.getInstance(dbType).getUsersDAO().getRoleByEmail(email);
     }
 
-    protected static void addUser(User user) {
-        DAOFactory.getInstance(DBType.POSTGRES).getUsersDAO().insertUser(user);
+    protected int getUserIdByEmail(String email) {
+        return DAOFactory.getInstance(dbType).getUsersDAO().getUserIdByEmail(email);
     }
 
-    protected static void deleteUser(int userId) {
-        DAOFactory.getInstance(DBType.POSTGRES).getUsersDAO().deleteUser(userId);
+    protected void addUser(User user) {
+        DAOFactory.getInstance(dbType).getUsersDAO().insertUser(user);
+    }
+
+    protected void deleteUser(User user) {
+        DAOFactory.getInstance(dbType).getUsersDAO().deleteUser(user);
     }
 
 }

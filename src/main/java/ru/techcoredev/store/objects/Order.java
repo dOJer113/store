@@ -1,12 +1,19 @@
 package ru.techcoredev.store.objects;
 
+import jakarta.persistence.*;
+
 import java.sql.Date;
 
+@Entity
+@Table(name = "orders")
 public class Order {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int number;
     private int userId;
     private Date registrationDate;
     private Date closingDate;
+    @Enumerated(EnumType.STRING)
     private Status status;
 
     public Order(int number, int userId, Date registrationDate, Date closingDate, Status status) {

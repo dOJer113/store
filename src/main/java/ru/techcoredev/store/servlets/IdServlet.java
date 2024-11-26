@@ -1,5 +1,6 @@
 package ru.techcoredev.store.servlets;
 
+import ru.techcoredev.store.dbconnect.DBType;
 import ru.techcoredev.store.dbmanagers.UserDBManager;
 import ru.techcoredev.store.objects.User;
 
@@ -17,7 +18,7 @@ public class IdServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
             int id = Integer.parseInt(req.getParameter("id"));
-            User user = UserDBManager.getUsers().stream().filter(x -> x.getUserId() == id).findFirst().orElse(new User());
+            User user = new UserDBManager(DBType.HIBERNATE_POSTGRES).getUsers().stream().filter(x -> x.getUserId() == id).findFirst().orElse(new User());
             req.setAttribute("user", user);
             req.getRequestDispatcher(JSPPages.USER_BY_ID.getUrl()).forward(req, resp);
         } catch (NullPointerException | NumberFormatException e) {

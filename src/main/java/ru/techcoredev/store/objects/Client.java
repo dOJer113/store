@@ -1,7 +1,14 @@
 package ru.techcoredev.store.objects;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "clients")
 public class Client {
     public static final String NO_USER_NAME = "no_user";
+    @Id
     private int userId;
     private String name;
     private String surname;

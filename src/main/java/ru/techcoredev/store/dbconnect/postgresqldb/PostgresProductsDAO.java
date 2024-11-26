@@ -44,9 +44,9 @@ public class PostgresProductsDAO implements ProductsDAO {
     }
 
     @Override
-    public void deleteProduct(int productId) {
+    public void deleteProduct(Product product) {
         try (PreparedStatement statement = this.connection.prepareStatement(DELETE_QUERY)) {
-            statement.setInt(PostgresDBDAOFactory.FIRST_INDEX, productId);
+            statement.setInt(PostgresDBDAOFactory.FIRST_INDEX, product.getId());
             statement.executeUpdate();
         } catch (SQLException e) {
             ExceptionHandler.handleException("Exception deleting product from db", e);
@@ -72,7 +72,7 @@ public class PostgresProductsDAO implements ProductsDAO {
             statement.setDouble(PostgresDBDAOFactory.FOURTH_INDEX, product.getRemains());
             statement.executeUpdate();
         } catch (SQLException e) {
-            ExceptionHandler.handleException("Exception inserting product into db",e);
+            ExceptionHandler.handleException("Exception inserting product into db", e);
         }
     }
 }

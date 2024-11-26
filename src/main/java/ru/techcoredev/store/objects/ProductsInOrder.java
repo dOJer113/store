@@ -1,8 +1,16 @@
 package ru.techcoredev.store.objects;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "products_in_order")
 public class ProductsInOrder {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "order_number")
     private int orderNumber;
     private int productId;
+    @Column(name = "count_product")
     private int countProduct;
 
     public ProductsInOrder(int orderNumber, int productId, int countProduct) {

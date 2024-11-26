@@ -8,7 +8,7 @@ import java.util.List;
 public interface UsersDAO {
     void insertUser(User user);
 
-    void deleteUser(int userId);
+    void deleteUser(User user);
 
     void updateUser(User user);
 
@@ -18,5 +18,5 @@ public interface UsersDAO {
 
     User getUserByEmailPassword(String email, String password);
 
-    String getRoleByEmail(String email);
+    Role getRoleByEmail(String email);
 }

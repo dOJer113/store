@@ -7,7 +7,7 @@ import java.util.List;
 public interface OrdersDAO {
     void createOrder(Order order);
 
-    void deleteOrder(int orderId);
+    void deleteOrder(Order order);
 
     List<Order> getOrders();
 
