@@ -23,6 +23,7 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
+
         User user = new UserDBManager(DBType.HIBERNATE_POSTGRES).getUserEmailPassword(email, password);
         HttpSession session = req.getSession();
         if (user.getUserId() != 0) {
