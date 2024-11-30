@@ -6,6 +6,8 @@ import org.hibernate.cfg.Configuration;
 import ru.techcoredev.store.ExceptionHandler;
 import ru.techcoredev.store.db.dbconnect.DAOinterfeices.*;
 import ru.techcoredev.store.objects.*;
+import ru.techcoredev.store.objects.builders.Client;
+import ru.techcoredev.store.objects.builders.User;
 
 public class HibernateDAOFactory extends DAOFactory {
     private static volatile HibernateDAOFactory instance;

@@ -3,7 +3,7 @@ package ru.techcoredev.store.db.dbmanagers;
 import ru.techcoredev.store.db.dbconnect.DAOinterfeices.DAOFactory;
 import ru.techcoredev.store.db.dbconnect.DBType;
 import ru.techcoredev.store.objects.Role;
-import ru.techcoredev.store.objects.User;
+import ru.techcoredev.store.objects.builders.User;
 
 import java.util.List;
 

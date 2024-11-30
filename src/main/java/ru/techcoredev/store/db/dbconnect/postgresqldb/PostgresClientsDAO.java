@@ -2,7 +2,9 @@ package ru.techcoredev.store.db.dbconnect.postgresqldb;
 
 import ru.techcoredev.store.ExceptionHandler;
 import ru.techcoredev.store.db.dbconnect.DAOinterfeices.ClientsDAO;
-import ru.techcoredev.store.objects.Client;
+import ru.techcoredev.store.objects.builders.Client;
+import ru.techcoredev.store.objects.builders.ClientBuilder;
+import ru.techcoredev.store.objects.builders.RegistrationClientBuilder;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -33,7 +35,7 @@ public class PostgresClientsDAO implements ClientsDAO {
             statement.setString(PostgresDBDAOFactory.FIFTH_INDEX, client.getAddress());
             statement.executeUpdate();
         } catch (SQLException e) {
-            ExceptionHandler.handleException("Exception inserting client into db",e);
+            ExceptionHandler.handleException("Exception inserting client into db", e);
         }
     }
 
@@ -43,7 +45,7 @@ public class PostgresClientsDAO implements ClientsDAO {
             statement.setInt(PostgresDBDAOFactory.FIRST_INDEX, client.getUserId());
             statement.executeUpdate();
         } catch (SQLException e) {
-            ExceptionHandler.handleException("Exception deleting client from db",e);
+            ExceptionHandler.handleException("Exception deleting client from db", e);
         }
     }
 
@@ -57,7 +59,7 @@ public class PostgresClientsDAO implements ClientsDAO {
             statement.setInt(PostgresDBDAOFactory.FIFTH_INDEX, client.getUserId());
             statement.executeUpdate();
         } catch (SQLException e) {
-            ExceptionHandler.handleException("Exception updating client",e);
+            ExceptionHandler.handleException("Exception updating client", e);
         }
     }
 
@@ -67,15 +69,16 @@ public class PostgresClientsDAO implements ClientsDAO {
         try (PreparedStatement statement = this.connection.prepareStatement(SELECT_QUERY);
              ResultSet resultSet = statement.executeQuery()) {
             while (resultSet.next()) {
-                Client client = new Client(resultSet.getInt(PostgresDBDAOFactory.FIRST_INDEX),
-                        resultSet.getString(PostgresDBDAOFactory.SECOND_INDEX),
-                        resultSet.getString(PostgresDBDAOFactory.THIRD_INDEX),
-                        resultSet.getString(PostgresDBDAOFactory.FOURTH_INDEX),
-                        resultSet.getString(PostgresDBDAOFactory.FIFTH_INDEX));
+                Client client = new RegistrationClientBuilder()
+                        .id(resultSet.getInt(PostgresDBDAOFactory.FIRST_INDEX))
+                        .name(resultSet.getString(PostgresDBDAOFactory.SECOND_INDEX))
+                        .surname(resultSet.getString(PostgresDBDAOFactory.THIRD_INDEX))
+                        .phoneNumber(resultSet.getString(PostgresDBDAOFactory.FOURTH_INDEX))
+                        .address(resultSet.getString(PostgresDBDAOFactory.FIFTH_INDEX)).build();
                 clients.add(client);
             }
         } catch (SQLException e) {
-            ExceptionHandler.handleException("Exception getting clients from db",e);
+            ExceptionHandler.handleException("Exception getting clients from db", e);
         }
         return clients;
     }

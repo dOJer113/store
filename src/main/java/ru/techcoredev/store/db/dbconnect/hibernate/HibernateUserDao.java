@@ -9,7 +9,8 @@ import ru.techcoredev.store.ExceptionHandler;
 import ru.techcoredev.store.db.dbconnect.DAOinterfeices.UsersDAO;
 import ru.techcoredev.store.db.dbconnect.pool.ConnectionPool;
 import ru.techcoredev.store.objects.Role;
-import ru.techcoredev.store.objects.User;
+import ru.techcoredev.store.objects.builders.RegistrationUserBuilder;
+import ru.techcoredev.store.objects.builders.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -93,8 +94,11 @@ public class HibernateUserDao implements UsersDAO {
         query.setParameter("email", email);
         int id = 0;
         try {
-            id = query.list().get(0);
-        } catch (NullPointerException e) {
+            List<Integer> list = query.list();
+            if (!list.isEmpty()) {
+                id = list.get(0);
+            }
+        } catch (Exception e) {
             ExceptionHandler.handleException("Exception getting user`s id from db by email", e);
         }
         tx1.commit();
@@ -113,7 +117,7 @@ public class HibernateUserDao implements UsersDAO {
         } catch (IllegalArgumentException | NullPointerException e) {
             ExceptionHandler.handleException("Exception getting user from db by email and password", e);
         }
-        User user = new User();
+        User user = new RegistrationUserBuilder().build();
         try {
             user = query.list().get(0);
         } catch (NullPointerException e) {

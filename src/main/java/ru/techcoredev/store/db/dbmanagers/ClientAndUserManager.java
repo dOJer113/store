@@ -2,11 +2,11 @@ package ru.techcoredev.store.db.dbmanagers;
 
 
 import ru.techcoredev.store.db.dbconnect.DBType;
-import ru.techcoredev.store.objects.Client;
+import ru.techcoredev.store.objects.builders.Client;
 import ru.techcoredev.store.objects.Role;
-import ru.techcoredev.store.objects.User;
-import ru.techcoredev.store.objects.fabrics.ClientFabricForRegistration;
-import ru.techcoredev.store.objects.fabrics.UserFabricForRegistration;
+import ru.techcoredev.store.objects.builders.User;
+import ru.techcoredev.store.objects.builders.RegistrationClientBuilder;
+import ru.techcoredev.store.objects.builders.RegistrationUserBuilder;
 
 public class ClientAndUserManager {
     private DBType dbType;
@@ -17,8 +17,8 @@ public class ClientAndUserManager {
 
     public boolean addUserAndClient(String email, String password, String name, String surname, String phone, String address) {
         if (this.isEmailUnique(email)) {
-            User user = UserFabricForRegistration.getUser(email, password);
-            Client client = ClientFabricForRegistration.getClient(name, surname, phone, address);
+            User user = new RegistrationUserBuilder().email(email).password(password).build();
+            Client client = new RegistrationClientBuilder().name(name).surname(surname).address(address).phoneNumber(phone).build();
             if (user.getRole().equals(Role.CLIENT) && !client.getName().equals(Client.NO_USER_NAME)) {
                 UserDBManager userDBManager = new UserDBManager(this.dbType);
                 ClientDBManager clientDBManager = new ClientDBManager(this.dbType);

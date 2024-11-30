@@ -2,7 +2,7 @@ package ru.techcoredev.store.web.servlets;
 
 import ru.techcoredev.store.db.dbconnect.DBType;
 import ru.techcoredev.store.db.dbmanagers.UserDBManager;
-import ru.techcoredev.store.objects.User;
+import ru.techcoredev.store.objects.builders.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

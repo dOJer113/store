@@ -1,6 +1,7 @@
-package ru.techcoredev.store.objects;
+package ru.techcoredev.store.objects.builders;
 
 import jakarta.persistence.*;
+import ru.techcoredev.store.objects.Role;
 
 @Entity
 @Table(name = "users")
@@ -13,26 +14,26 @@ public class User {
     private Role role;
     private String password;
 
-    public User(int userId, String email, Role role, String password) {
+    protected User(int userId, String email, Role role, String password) {
         this.userId = userId;
         this.email = email;
         this.role = role;
         this.password = password;
     }
 
-    public User() {
+    protected User() {
         this.userId = 0;
         this.email = "null email";
         this.password = "null password";
         this.role = Role.NO_USER;
     }
 
-    public User(String email, String password) {
+    protected User(String email, String password) {
         this.email = email;
         this.password = password;
     }
 
-    public User(String email, Role role, String password) {
+    protected User(String email, Role role, String password) {
         this.email = email;
         this.role = role;
         this.password = password;

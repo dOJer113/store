@@ -7,7 +7,7 @@ import org.hibernate.Transaction;
 import ru.techcoredev.store.ExceptionHandler;
 import ru.techcoredev.store.db.dbconnect.DAOinterfeices.ClientsDAO;
 import ru.techcoredev.store.db.dbconnect.pool.ConnectionPool;
-import ru.techcoredev.store.objects.Client;
+import ru.techcoredev.store.objects.builders.Client;
 
 import java.util.List;
 

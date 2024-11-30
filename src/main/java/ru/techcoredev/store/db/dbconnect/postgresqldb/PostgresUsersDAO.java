@@ -3,7 +3,9 @@ package ru.techcoredev.store.db.dbconnect.postgresqldb;
 import ru.techcoredev.store.ExceptionHandler;
 import ru.techcoredev.store.db.dbconnect.DAOinterfeices.UsersDAO;
 import ru.techcoredev.store.objects.Role;
-import ru.techcoredev.store.objects.User;
+import ru.techcoredev.store.objects.builders.RegistrationUserBuilder;
+import ru.techcoredev.store.objects.builders.User;
+import ru.techcoredev.store.objects.builders.UserBuilder;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -83,11 +85,11 @@ public class PostgresUsersDAO implements UsersDAO {
         try (PreparedStatement statement = this.connection.prepareStatement(SELECT_QUERY);
              ResultSet resultSet = statement.executeQuery()) {
             while (resultSet.next()) {
-                User user = new User(resultSet.getInt(PostgresDBDAOFactory.FIRST_INDEX),
-                        resultSet.getString(PostgresDBDAOFactory.SECOND_INDEX),
-                        Role.valueOf(resultSet.getString(PostgresDBDAOFactory.THIRD_INDEX).toUpperCase()),
-                        resultSet.getString(PostgresDBDAOFactory.FOURTH_INDEX));
-                users.add(user);
+                users.add(new RegistrationUserBuilder().id(resultSet.getInt(PostgresDBDAOFactory.FIRST_INDEX))
+                        .email(resultSet.getString(PostgresDBDAOFactory.SECOND_INDEX))
+                        .role(Role.valueOf(resultSet.getString(PostgresDBDAOFactory.THIRD_INDEX).toUpperCase()))
+                        .password(resultSet.getString(PostgresDBDAOFactory.FOURTH_INDEX))
+                        .build());
             }
         } catch (SQLException e) {
             ExceptionHandler.handleException("Exception getting users from db", e);
@@ -102,17 +104,16 @@ public class PostgresUsersDAO implements UsersDAO {
             statement.setString(PostgresDBDAOFactory.SECOND_INDEX, passwordToSearch);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
-                int id = resultSet.getInt(PostgresDBDAOFactory.FIRST_INDEX);
-                String email = resultSet.getString(PostgresDBDAOFactory.SECOND_INDEX);
-                Role role = Role.valueOf(resultSet.getString(PostgresDBDAOFactory.THIRD_INDEX).toUpperCase());
-                String password = resultSet.getString(PostgresDBDAOFactory.FOURTH_INDEX);
-                User user = new User(id, email, role, password);
-                return user;
+                return new RegistrationUserBuilder().id(resultSet.getInt(PostgresDBDAOFactory.FIRST_INDEX))
+                        .email(resultSet.getString(PostgresDBDAOFactory.SECOND_INDEX))
+                        .role(Role.valueOf(resultSet.getString(PostgresDBDAOFactory.THIRD_INDEX).toUpperCase()))
+                        .password(resultSet.getString(PostgresDBDAOFactory.FOURTH_INDEX))
+                        .build();
             }
         } catch (SQLException e) {
             ExceptionHandler.handleException("Exception getting user by email and password from db", e);
         }
-        return new User();
+        return new RegistrationUserBuilder().build();
     }
 
     @Override

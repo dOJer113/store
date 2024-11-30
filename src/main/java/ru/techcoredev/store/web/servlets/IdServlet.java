@@ -2,7 +2,8 @@ package ru.techcoredev.store.web.servlets;
 
 import ru.techcoredev.store.db.dbconnect.DBType;
 import ru.techcoredev.store.db.dbmanagers.UserDBManager;
-import ru.techcoredev.store.objects.User;
+import ru.techcoredev.store.objects.builders.RegistrationUserBuilder;
+import ru.techcoredev.store.objects.builders.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -19,7 +20,7 @@ public class IdServlet extends HttpServlet {
         try {
             int id = Integer.parseInt(req.getParameter("id"));
             DBType dbType = DBType.valueOf(req.getServletContext().getAttribute("dbType").toString());
-            User user = new UserDBManager(dbType).getUsers().stream().filter(x -> x.getUserId() == id).findFirst().orElse(new User());
+            User user = new UserDBManager(dbType).getUsers().stream().filter(x -> x.getUserId() == id).findFirst().orElse(new RegistrationUserBuilder().build());
             req.setAttribute("user", user);
             req.getRequestDispatcher(JSPPages.USER_BY_ID.getUrl()).forward(req, resp);
         } catch (NullPointerException | NumberFormatException e) {

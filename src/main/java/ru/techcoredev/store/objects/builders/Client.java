@@ -1,4 +1,4 @@
-package ru.techcoredev.store.objects;
+package ru.techcoredev.store.objects.builders;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -15,14 +15,14 @@ public class Client {
     private String phoneNumber;
     private String address;
 
-    public Client(String name, String surname, String phoneNumber, String address) {
+    protected Client(String name, String surname, String phoneNumber, String address) {
         this.name = name;
         this.surname = surname;
         this.phoneNumber = phoneNumber;
         this.address = address;
     }
 
-    public Client(int userId, String name, String surname, String phoneNumber, String address) {
+    protected Client(int userId, String name, String surname, String phoneNumber, String address) {
         this.userId = userId;
         this.name = name;
         this.surname = surname;
@@ -30,7 +30,7 @@ public class Client {
         this.address = address;
     }
 
-    public Client() {
+    protected Client() {
         this.userId = 0;
         this.name = NO_USER_NAME;
         this.surname = "no_surname";
