@@ -1,21 +1,29 @@
+<%@ page import="ru.techcoredev.store.resourcer.Resourcer" %>
+<%@ page import="ru.techcoredev.store.resourcer.ProjectResourcer" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%
+    Resourcer resourcer = ProjectResourcer.getInstance();
+%>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Информация о пользователе</title>
+    <title><%= resourcer.getString("user.info.page.title") %>
+    </title>
 </head>
 <body>
 <c:choose>
     <c:when test="${user.userId == 0}">
-        <p style="color: red;">Ошибка: Пользователь не найден.</p>
+        <p style="color: red;"><%= resourcer.getString("user.info.page.error.notFound") %>
+        </p>
     </c:when>
     <c:otherwise>
-        <h2>Информация о пользователе</h2>
-        <p>Идентификатор: ${user.userId}</p>
-        <p>Электронная почта: ${user.email}</p>
-        <p>Роль: ${user.role}</p>
-        <p>Пароль: ${user.password}</p>
+        <h2><%= resourcer.getString("user.info.page.header") %>
+        </h2>
+        <p><%= resourcer.getString("user.info.page.userId") %>: ${user.userId}</p>
+        <p><%= resourcer.getString("user.info.page.email") %>: ${user.email}</p>
+        <p><%= resourcer.getString("user.info.page.role") %>: ${user.role}</p>
+        <p><%= resourcer.getString("user.info.page.password") %>: ${user.password}</p>
     </c:otherwise>
 </c:choose>
 </body>
