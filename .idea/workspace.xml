@@ -9,43 +9,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb4d38dd-e1fd-4a47-81ea-f3b57d074790" name="Changes" comment="small changes">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/hibernate/HibernateDAOFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/hibernate/HibernateOrdersDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/hibernate/HibernateProductsDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/hibernate/TransactionServices.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/hibernate.properties" afterDir="false" />
+    <list default="true" id="cb4d38dd-e1fd-4a47-81ea-f3b57d074790" name="Changes" comment="English language added">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/objects/OrderDetails.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/web/servlets/AllOrders.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/allOrders.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/productsByOrder.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/DAOinterfeices/ClientsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/DAOinterfeices/ClientsDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/DAOinterfeices/DAOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/DAOinterfeices/DAOFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/DAOinterfeices/OrdersDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/DAOinterfeices/OrdersDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/DAOinterfeices/ProductsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/DAOinterfeices/ProductsDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/DAOinterfeices/RolesDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/DAOinterfeices/StatusDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/DAOinterfeices/UsersDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/DAOinterfeices/UsersDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/DBType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/DBType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/postgresqldb/PostgresClientsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/postgresqldb/PostgresClientsDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/postgresqldb/PostgresDBDAOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/postgresqldb/PostgresDBDAOFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/postgresqldb/PostgresOrdersDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/postgresqldb/PostgresOrdersDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/postgresqldb/PostgresProductsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/postgresqldb/PostgresProductsDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/postgresqldb/PostgresRolesDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/postgresqldb/PostgresStatusesDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/postgresqldb/PostgresUsersDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbconnect/postgresqldb/PostgresUsersDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbmanagers/ClientAndUserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbmanagers/ClientAndUserManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbmanagers/ClientDBManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbmanagers/ClientDBManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbmanagers/OrdersManger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbmanagers/OrdersManger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbmanagers/ProductsManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbmanagers/ProductsManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbmanagers/UserDBManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/dbmanagers/UserDBManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/objects/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/objects/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/objects/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/objects/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/objects/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/objects/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/objects/ProductsInOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/objects/ProductsInOrder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/objects/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/objects/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/servlets/AllServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/servlets/AllServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/servlets/IdServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/servlets/IdServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/servlets/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/servlets/LoginServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/servlets/RegistrationServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/servlets/RegistrationServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/db/dbconnect/DAOinterfeices/OrdersDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/db/dbconnect/DAOinterfeices/OrdersDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/db/dbconnect/hibernate/HibernateOrdersDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/db/dbconnect/hibernate/HibernateOrdersDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/db/dbconnect/postgresqldb/PostgresOrdersDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/db/dbconnect/postgresqldb/PostgresOrdersDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/db/dbmanagers/OrdersManger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/db/dbmanagers/OrdersDBManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/web/servlets/AllServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/web/servlets/AllServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/web/servlets/IdServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/web/servlets/IdServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/web/servlets/JSPPages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/web/servlets/JSPPages.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/text.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/text.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/text_ru_RU.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/text_ru_RU.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/adminMenu.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/adminMenu.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/viewUserById.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/viewUserById.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,13 +37,22 @@
       <list>
         <option value="Enum" />
         <option value="Interface" />
+        <option value="Jsp File" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="hiber" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2nWyXjaBkoPuncebGG4LXWoTobv" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -77,11 +66,12 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "language",
     "last_opened_file_path": "D:/Java/java pr/допы/store",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
-    "settings.editor.selected.configurable": "project.propDebugger"
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "liveEdit"
   },
   "keyToStringList": {
     "DatabaseDriversLRU": [
@@ -92,13 +82,14 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Java\java pr\допы\store\src\main\java" />
+      <recent name="D:\Java\java pr\допы\store\src\main\resources" />
       <recent name="D:\Java\java pr\допы\store\src\main\webapp" />
       <recent name="D:\Java\java pr\допы\store\src\main\webapp\WEB-INF\classes" />
       <recent name="D:\Java\java pr\допы\store\src\main\java\ru\techcoredev\store\dbconnect\hibernate" />
-      <recent name="D:\Java\java pr\допы\store\src\main\resources" />
-      <recent name="D:\Java\java pr\допы\store\src\main\webapp\WEB-INF\view" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="ru.techcoredev.store.servlets" />
       <recent name="ru.techcoredev.store.dbconnect.hibernate" />
     </key>
   </component>
@@ -235,6 +226,14 @@
       <workItem from="1732472192332" duration="6103000" />
       <workItem from="1732548111482" duration="612000" />
       <workItem from="1732623863549" duration="492000" />
+      <workItem from="1732798411086" duration="1355000" />
+      <workItem from="1732867981487" duration="4199000" />
+      <workItem from="1732912939903" duration="6296000" />
+      <workItem from="1732969677789" duration="2297000" />
+      <workItem from="1732980501636" duration="2519000" />
+      <workItem from="1733047004440" duration="1048000" />
+      <workItem from="1733048067405" duration="3602000" />
+      <workItem from="1733304609082" duration="5173000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -252,7 +251,47 @@
       <option name="project" value="LOCAL" />
       <updated>1729238884702</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="small changes">
+      <option name="closed" value="true" />
+      <created>1732798696815</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1732798696815</updated>
+    </task>
+    <task id="LOCAL-00004" summary="refactoring hibernate functions">
+      <option name="closed" value="true" />
+      <created>1732872003864</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1732872003864</updated>
+    </task>
+    <task id="LOCAL-00005" summary="hiber synch, listener added">
+      <option name="closed" value="true" />
+      <created>1732915318753</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1732915318754</updated>
+    </task>
+    <task id="LOCAL-00006" summary="builder pattern for user/client">
+      <option name="closed" value="true" />
+      <created>1732984048720</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1732984048720</updated>
+    </task>
+    <task id="LOCAL-00007" summary="English language added">
+      <option name="closed" value="true" />
+      <created>1733051563725</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1733051563725</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -267,7 +306,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="language" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -276,7 +327,12 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init" />
     <MESSAGE value="added creating queries table" />
-    <option name="LAST_COMMIT_MESSAGE" value="added creating queries table" />
+    <MESSAGE value="small changes" />
+    <MESSAGE value="refactoring hibernate functions" />
+    <MESSAGE value="hiber synch, listener added" />
+    <MESSAGE value="builder pattern for user/client" />
+    <MESSAGE value="English language added" />
+    <option name="LAST_COMMIT_MESSAGE" value="English language added" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

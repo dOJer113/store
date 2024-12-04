@@ -26,5 +26,36 @@
         <p><%= resourcer.getString("user.info.page.password") %>: ${user.password}</p>
     </c:otherwise>
 </c:choose>
+<c:choose>
+    <c:when test="${not empty noOrders}">
+        <p style="color: red;"><%= resourcer.getString("users.page.error.orders") %>: ${noUsers}</p>
+    </c:when>
+    <c:otherwise>
+        <table border="1">
+            <tr>
+                <th><%= resourcer.getString("orders.page.table.number") %>
+                </th>
+                <th><%= resourcer.getString("orders.page.table.userid") %>
+                </th>
+                <th><%= resourcer.getString("orders.page.table.registrationdate") %>
+                </th>
+                <th><%= resourcer.getString("orders.page.table.closingdate") %>
+                </th>
+                <th><%= resourcer.getString("orders.page.table.status") %>
+                </th>
+            </tr>
+            <jsp:useBean id="orders" scope="request" type="java.util.List"/>
+            <c:forEach var="order" items="${orders}">
+                <tr>
+                    <td>${order.number}</td>
+                    <td>${order.userId}</td>
+                    <td>${order.registrationDate}</td>
+                    <td>${order.closingDate}</td>
+                    <td>${order.status}</td>
+                </tr>
+            </c:forEach>
+        </table>
+    </c:otherwise>
+</c:choose>
 </body>
 </html>

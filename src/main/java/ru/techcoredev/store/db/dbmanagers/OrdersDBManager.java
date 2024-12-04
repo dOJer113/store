@@ -6,10 +6,10 @@ import ru.techcoredev.store.objects.Order;
 
 import java.util.List;
 
-public class OrdersManger {
+public class OrdersDBManager {
     private DBType dbType;
 
-    public OrdersManger(DBType dbType) {
+    public OrdersDBManager(DBType dbType) {
         this.dbType = dbType;
     }
 
@@ -19,6 +19,10 @@ public class OrdersManger {
 
     public List<Order> getOrders() {
         return DAOFactory.getInstance(dbType).getOrdersDAO().getOrders();
+    }
+
+    public List<Order> getOrdersByUserId(int userId) {
+        return DAOFactory.getInstance(dbType).getOrdersDAO().getOrdersByUserID(userId);
     }
 
     public void updateOrder(Order order) {

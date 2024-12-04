@@ -66,6 +66,11 @@ public class PostgresOrdersDAO implements OrdersDAO {
     }
 
     @Override
+    public List<Order> getOrdersByUserID(int userId) {
+        return null;
+    }
+
+    @Override
     public void updateOrder(Order order) {
         try (PreparedStatement statement = this.connection.prepareStatement(UPDATE_QUERY)) {
             statement.setInt(PostgresDBDAOFactory.FIRST_INDEX, order.getUserId());

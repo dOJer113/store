@@ -28,7 +28,13 @@ public enum JSPPages {
             this.url = "/WEB-INF/view/viewUserById.jsp";
         }
     },
-    SUCCESS{
+    ORDERS {
+        {
+            this.url = "/WEB-INF/view/allOrders.jsp";
+        }
+    },
+
+    SUCCESS {
         {
             this.url = "/WEB-INF/view/success.jsp";
         }

@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 import ru.techcoredev.store.ExceptionHandler;
 import ru.techcoredev.store.db.dbconnect.DAOinterfeices.OrdersDAO;
 import ru.techcoredev.store.db.dbconnect.pool.ConnectionPool;
@@ -14,6 +15,7 @@ import java.util.List;
 public class HibernateOrdersDAO implements OrdersDAO {
     private static final Logger logger = LogManager.getLogger(ConnectionPool.class);
     private static final String SELECT_QUERY = "From Order";
+    private static final String SELECT_BY_USER_ID = "FROM Order WHERE userId = :userId";
 
     @Override
     public void createOrder(Order order) {
@@ -70,6 +72,15 @@ public class HibernateOrdersDAO implements OrdersDAO {
     public List<Order> getOrders() {
         try (Session session = HibernateDAOFactory.getSession()) {
             return session.createQuery(SELECT_QUERY).list();
+        }
+    }
+
+    @Override
+    public List<Order> getOrdersByUserID(int userId) {
+        try (Session session = HibernateDAOFactory.getSession()) {
+            Query<Order> query = session.createQuery(SELECT_BY_USER_ID, Order.class);
+            query.setParameter("userId", 4);
+            return query.getResultList();
         }
     }
 }

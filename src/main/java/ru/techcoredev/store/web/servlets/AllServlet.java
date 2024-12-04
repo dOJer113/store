@@ -21,6 +21,7 @@ public class AllServlet extends HttpServlet {
                          HttpServletResponse response) throws IOException, ServletException {
         DBType dbType = DBType.valueOf(request.getServletContext().getAttribute("dbType").toString());
         List<User> userList = new UserDBManager(dbType).getUsers();
+
         if (userList.size() == 0) {
             request.setAttribute("noUsers", "В базе данных нет пользователей!");
         } else {

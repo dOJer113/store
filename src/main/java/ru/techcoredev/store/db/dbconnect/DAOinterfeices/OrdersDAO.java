@@ -11,6 +11,8 @@ public interface OrdersDAO {
 
     List<Order> getOrders();
 
+    List<Order> getOrdersByUserID(int userId);
+
     void updateOrder(Order order);
 
 }
