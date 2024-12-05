@@ -12,4 +12,6 @@ public interface ProductsDAO {
     void updateProduct(Product product);
 
     void createProduct(Product product);
+
+    Product getProductById(int id);
 }

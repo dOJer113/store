@@ -75,4 +75,9 @@ public class PostgresProductsDAO implements ProductsDAO {
             ExceptionHandler.handleException("Exception inserting product into db", e);
         }
     }
+
+    @Override
+    public Product getProductById(int id) {
+        return null;
+    }
 }

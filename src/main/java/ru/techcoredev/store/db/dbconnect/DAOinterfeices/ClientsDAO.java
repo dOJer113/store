@@ -12,4 +12,6 @@ public interface ClientsDAO {
     void updateClient(Client client);
 
     List<Client> getClients();
+
+    Client getClientById(int id);
 }

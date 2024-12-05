@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 import ru.techcoredev.store.ExceptionHandler;
 import ru.techcoredev.store.db.dbconnect.DAOinterfeices.ClientsDAO;
 import ru.techcoredev.store.db.dbconnect.pool.ConnectionPool;
@@ -14,6 +15,7 @@ import java.util.List;
 public class HibernateClientsDAO implements ClientsDAO {
     private static final Logger logger = LogManager.getLogger(ConnectionPool.class);
     private static final String SELECT_QUERY = "FROM Client";
+    private static final String SELECT_CLIENT_BY_ID = "FROM Client WHERE userId = :id";;
 
     @Override
     public void insertClient(Client client) {
@@ -27,6 +29,15 @@ public class HibernateClientsDAO implements ClientsDAO {
         } catch (Exception e) {
             if (transaction != null) transaction.rollback();
             ExceptionHandler.handleException("Exception adding client ", e);
+        }
+    }
+
+    @Override
+    public Client getClientById(int id) {
+        try (Session session = HibernateDAOFactory.getSession()) {
+            Query<Client> query = session.createQuery(SELECT_CLIENT_BY_ID, Client.class);
+            query.setParameter("id", id);
+            return query.getSingleResult();
         }
     }
 

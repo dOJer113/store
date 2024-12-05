@@ -4,16 +4,29 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 import ru.techcoredev.store.ExceptionHandler;
 import ru.techcoredev.store.db.dbconnect.DAOinterfeices.ProductsDAO;
 import ru.techcoredev.store.db.dbconnect.pool.ConnectionPool;
 import ru.techcoredev.store.objects.Product;
+import ru.techcoredev.store.objects.ProductsInOrder;
 
 import java.util.List;
 
 public class HibernateProductsDAO implements ProductsDAO {
+
     private static final Logger logger = LogManager.getLogger(ConnectionPool.class);
-    private static final String SELECT_QUERY = "From Product";
+    private static final String SELECT_QUERY = "From Product where id = :id";
+    private static final String SELECT_PRODUCTS_BY_ID = "FROM Product WHERE id = :id";
+
+    @Override
+    public Product getProductById(int id) {
+        try (Session session = HibernateDAOFactory.getSession()) {
+            Query<Product> query = session.createQuery(SELECT_PRODUCTS_BY_ID, Product.class);
+            query.setParameter("id", id);
+            return query.getSingleResult();
+        }
+    }
 
     @Override
     public void createProduct(Product product) {

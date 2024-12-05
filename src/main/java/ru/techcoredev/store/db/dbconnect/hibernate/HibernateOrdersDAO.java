@@ -9,6 +9,7 @@ import ru.techcoredev.store.ExceptionHandler;
 import ru.techcoredev.store.db.dbconnect.DAOinterfeices.OrdersDAO;
 import ru.techcoredev.store.db.dbconnect.pool.ConnectionPool;
 import ru.techcoredev.store.objects.Order;
+import ru.techcoredev.store.objects.ProductsInOrder;
 
 import java.util.List;
 
@@ -16,6 +17,8 @@ public class HibernateOrdersDAO implements OrdersDAO {
     private static final Logger logger = LogManager.getLogger(ConnectionPool.class);
     private static final String SELECT_QUERY = "From Order";
     private static final String SELECT_BY_USER_ID = "FROM Order WHERE userId = :userId";
+    private static final String SELECT_BY_NUMBER = "FROM Order WHERE number = :number";
+    private static final String SELECT_PRODUCTS_BY_NUMBER = "FROM ProductsInOrder WHERE orderNumber = :number";
 
     @Override
     public void createOrder(Order order) {
@@ -79,7 +82,25 @@ public class HibernateOrdersDAO implements OrdersDAO {
     public List<Order> getOrdersByUserID(int userId) {
         try (Session session = HibernateDAOFactory.getSession()) {
             Query<Order> query = session.createQuery(SELECT_BY_USER_ID, Order.class);
-            query.setParameter("userId", 4);
+            query.setParameter("userId", userId);
+            return query.getResultList();
+        }
+    }
+
+    @Override
+    public Order getOrderByNumber(int number) {
+        try (Session session = HibernateDAOFactory.getSession()) {
+            Query<Order> query = session.createQuery(SELECT_BY_NUMBER, Order.class);
+            query.setParameter("number", number);
+            return query.getResultList().get(0);
+        }
+    }
+
+    @Override
+    public List<ProductsInOrder> getProductsByOrderNumber(int number) {
+        try (Session session = HibernateDAOFactory.getSession()) {
+            Query<ProductsInOrder> query = session.createQuery(SELECT_PRODUCTS_BY_NUMBER, ProductsInOrder.class);
+            query.setParameter("number", number);
             return query.getResultList();
         }
     }

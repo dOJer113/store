@@ -3,6 +3,7 @@ package ru.techcoredev.store.db.dbconnect.postgresqldb;
 import ru.techcoredev.store.ExceptionHandler;
 import ru.techcoredev.store.db.dbconnect.DAOinterfeices.OrdersDAO;
 import ru.techcoredev.store.objects.Order;
+import ru.techcoredev.store.objects.ProductsInOrder;
 import ru.techcoredev.store.objects.Status;
 
 import java.sql.Connection;
@@ -67,6 +68,16 @@ public class PostgresOrdersDAO implements OrdersDAO {
 
     @Override
     public List<Order> getOrdersByUserID(int userId) {
+        return null;
+    }
+
+    @Override
+    public Order getOrderByNumber(int number) {
+        return null;
+    }
+
+    @Override
+    public List<ProductsInOrder> getProductsByOrderNumber(int number) {
         return null;
     }
 

@@ -9,23 +9,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb4d38dd-e1fd-4a47-81ea-f3b57d074790" name="Changes" comment="English language added">
+    <list default="true" id="cb4d38dd-e1fd-4a47-81ea-f3b57d074790" name="Changes" comment="new functions">
       <change afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/objects/OrderDetails.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/web/servlets/AllOrders.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/allOrders.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/productsByOrder.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/order.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/db/dbconnect/DAOinterfeices/ClientsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/db/dbconnect/DAOinterfeices/ClientsDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/db/dbconnect/DAOinterfeices/OrdersDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/db/dbconnect/DAOinterfeices/OrdersDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/db/dbconnect/DAOinterfeices/ProductsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/db/dbconnect/DAOinterfeices/ProductsDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/db/dbconnect/hibernate/HibernateClientsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/db/dbconnect/hibernate/HibernateClientsDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/db/dbconnect/hibernate/HibernateOrdersDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/db/dbconnect/hibernate/HibernateOrdersDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/db/dbconnect/hibernate/HibernateProductsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/db/dbconnect/hibernate/HibernateProductsDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/db/dbconnect/postgresqldb/PostgresClientsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/db/dbconnect/postgresqldb/PostgresClientsDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/db/dbconnect/postgresqldb/PostgresOrdersDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/db/dbconnect/postgresqldb/PostgresOrdersDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/db/dbmanagers/OrdersManger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/db/dbmanagers/OrdersDBManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/web/servlets/AllServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/web/servlets/AllServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/web/servlets/IdServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/web/servlets/IdServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/db/dbconnect/postgresqldb/PostgresProductsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/db/dbconnect/postgresqldb/PostgresProductsDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/db/dbmanagers/OrdersDBManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/db/dbmanagers/OrdersDBManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/objects/ProductsInOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/objects/ProductsInOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/web/servlets/AllOrders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/web/servlets/AllOrders.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/web/servlets/JSPPages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/techcoredev/store/web/servlets/JSPPages.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/text.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/text.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/text_ru_RU.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/text_ru_RU.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/adminMenu.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/adminMenu.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/viewUserById.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/viewUserById.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/allOrders.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/allOrders.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,8 +40,8 @@
       <list>
         <option value="Enum" />
         <option value="Interface" />
-        <option value="Jsp File" />
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -233,7 +236,9 @@
       <workItem from="1732980501636" duration="2519000" />
       <workItem from="1733047004440" duration="1048000" />
       <workItem from="1733048067405" duration="3602000" />
-      <workItem from="1733304609082" duration="5173000" />
+      <workItem from="1733304609082" duration="5348000" />
+      <workItem from="1733319384370" duration="41000" />
+      <workItem from="1733331031873" duration="5312000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -291,7 +296,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733051563725</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="new functions">
+      <option name="closed" value="true" />
+      <created>1733309942074</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1733309942075</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -332,7 +345,19 @@
     <MESSAGE value="hiber synch, listener added" />
     <MESSAGE value="builder pattern for user/client" />
     <MESSAGE value="English language added" />
-    <option name="LAST_COMMIT_MESSAGE" value="English language added" />
+    <MESSAGE value="new functions" />
+    <option name="LAST_COMMIT_MESSAGE" value="new functions" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ru/techcoredev/store/web/servlets/AllOrders.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

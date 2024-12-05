@@ -38,7 +38,7 @@
             <td>${order.status}</td>
             <td>
                 <form action="${pageContext.request.contextPath}/allOrders" method="post">
-                    <input type="hidden" name="orderId" value="${order.id}"/>
+                    <input type="hidden" name="orderNumber" value="${order.number}"/>
                     <input type="submit" value="<%= resourcer.getString("orders.page.table.action.details") %>"/>
                 </form>
             </td>

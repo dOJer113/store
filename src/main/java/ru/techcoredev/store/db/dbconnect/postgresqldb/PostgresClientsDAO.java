@@ -82,4 +82,9 @@ public class PostgresClientsDAO implements ClientsDAO {
         }
         return clients;
     }
+
+    @Override
+    public Client getClientById(int id) {
+        return null;
+    }
 }

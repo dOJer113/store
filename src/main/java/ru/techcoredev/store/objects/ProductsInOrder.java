@@ -12,6 +12,7 @@ public class ProductsInOrder {
     private int productId;
     @Column(name = "count_product")
     private int countProduct;
+    public ProductsInOrder(){}
 
     public ProductsInOrder(int orderNumber, int productId, int countProduct) {
         this.orderNumber = orderNumber;
