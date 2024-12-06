@@ -39,5 +39,9 @@
         </tr>
     </c:forEach>
 </table>
+<form action="${pageContext.request.contextPath}/download" method="get">
+    <input type="hidden" name="orderNumber" value="${orderDetails.number}"/>
+    <button type="submit"><%= resourcer.getString("order.download") %></button>
+</form>
 </body>
 </html>
