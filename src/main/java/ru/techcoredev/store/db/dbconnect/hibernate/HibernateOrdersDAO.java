@@ -7,14 +7,13 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import ru.techcoredev.store.ExceptionHandler;
 import ru.techcoredev.store.db.dbconnect.DAOinterfeices.OrdersDAO;
-import ru.techcoredev.store.db.dbconnect.pool.ConnectionPool;
 import ru.techcoredev.store.objects.Order;
 import ru.techcoredev.store.objects.ProductsInOrder;
 
 import java.util.List;
 
 public class HibernateOrdersDAO implements OrdersDAO {
-    private static final Logger logger = LogManager.getLogger(ConnectionPool.class);
+    private static final Logger logger = LogManager.getLogger(HibernateOrdersDAO.class);
     private static final String SELECT_QUERY = "From Order";
     private static final String SELECT_BY_USER_ID = "FROM Order WHERE userId = :userId";
     private static final String SELECT_BY_NUMBER = "FROM Order WHERE number = :number";

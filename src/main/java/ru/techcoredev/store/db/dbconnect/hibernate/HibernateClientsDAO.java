@@ -7,13 +7,12 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import ru.techcoredev.store.ExceptionHandler;
 import ru.techcoredev.store.db.dbconnect.DAOinterfeices.ClientsDAO;
-import ru.techcoredev.store.db.dbconnect.pool.ConnectionPool;
 import ru.techcoredev.store.objects.builders.Client;
 
 import java.util.List;
 
 public class HibernateClientsDAO implements ClientsDAO {
-    private static final Logger logger = LogManager.getLogger(ConnectionPool.class);
+    private static final Logger logger = LogManager.getLogger(HibernateClientsDAO.class);
     private static final String SELECT_QUERY = "FROM Client";
     private static final String SELECT_CLIENT_BY_ID = "FROM Client WHERE userId = :id";;
 
@@ -23,7 +22,7 @@ public class HibernateClientsDAO implements ClientsDAO {
         Transaction transaction = null;
         try (Session session = HibernateDAOFactory.getSession()) {
             transaction = session.beginTransaction();
-            session.save(client);
+            session.persist(client);
             transaction.commit();
             logger.debug("Client added");
         } catch (Exception e) {

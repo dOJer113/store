@@ -28,7 +28,7 @@
 </c:choose>
 <c:choose>
     <c:when test="${not empty noOrders}">
-        <p style="color: red;"><%= resourcer.getString("users.page.error.orders") %>: ${noUsers}</p>
+        <p><%= resourcer.getString("users.page.error.orders") %>: ${noUsers}</p>
     </c:when>
     <c:otherwise>
         <table border="1">

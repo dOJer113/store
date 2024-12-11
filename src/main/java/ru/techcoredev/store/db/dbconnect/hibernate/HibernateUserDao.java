@@ -7,8 +7,8 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import ru.techcoredev.store.ExceptionHandler;
 import ru.techcoredev.store.db.dbconnect.DAOinterfeices.UsersDAO;
-import ru.techcoredev.store.db.dbconnect.pool.ConnectionPool;
 import ru.techcoredev.store.objects.Role;
+import ru.techcoredev.store.objects.builders.Client;
 import ru.techcoredev.store.objects.builders.RegistrationUserBuilder;
 import ru.techcoredev.store.objects.builders.User;
 
@@ -20,7 +20,7 @@ public class HibernateUserDao implements UsersDAO {
     private static final String QUERY_GET_USER_BY_EMAIL_PASSWORD = "FROM User u where u.email = :email and u.password = :password";
     private static final String QUERY_GET_ROLE_BY_EMAIL = "Select u.role FROM User u where u.email = :email";
     private static final String SELECT_QUERY = "From User";
-    private static final Logger logger = LogManager.getLogger(ConnectionPool.class);
+    private static final Logger logger = LogManager.getLogger(HibernateUserDao.class);
 
     @Override
     public List<User> getUsers() {
@@ -35,18 +35,43 @@ public class HibernateUserDao implements UsersDAO {
     }
 
     @Override
-    public void insertUser(User user) {
-        logger.debug("Inserting user with userID: " + user.getUserId());
+    public boolean addUserAndClient(User user, Client client) {
+        logger.debug("Inserting user and client with userID: " + user.getUserId());
         Transaction transaction = null;
         try (Session session = HibernateDAOFactory.getSession()) {
             transaction = session.beginTransaction();
-            session.save(user);
+            int userId = (int) session.save(user);
+            client.setUserId(userId);
+            session.persist(client);
+            transaction.commit();
+            logger.debug("User and client added");
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            ExceptionHandler.handleException("Exception adding user and client", e);
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public int insertUser(User user) {
+        logger.debug("Inserting user with userID: " + user.getUserId());
+        Transaction transaction = null;
+        int idUser = 0;
+        try (Session session = HibernateDAOFactory.getSession()) {
+            transaction = session.beginTransaction();
+            idUser = (int) session.save(user);
             transaction.commit();
             logger.debug("User added");
         } catch (Exception e) {
-            if (transaction != null) transaction.rollback();
+            if (transaction != null) {
+                transaction.rollback();
+            }
             ExceptionHandler.handleException("Exception adding user ", e);
         }
+        return idUser;
     }
 
     @Override
@@ -108,19 +133,19 @@ public class HibernateUserDao implements UsersDAO {
     @Override
     public User getUserByEmailPassword(String emailToSearch, String passwordToSearch) {
         logger.debug("Getting users from db by email and password: " + emailToSearch + ", " + passwordToSearch);
-        Session session = HibernateDAOFactory.getInstance().getSession();
+        Session session = HibernateDAOFactory.getSession();
         Query<User> query = null;
         try {
             query = session.createQuery(QUERY_GET_USER_BY_EMAIL_PASSWORD);
             query.setParameter("email", emailToSearch);
             query.setParameter("password", passwordToSearch);
-        } catch (IllegalArgumentException | NullPointerException e) {
+        } catch (Exception e) {
             ExceptionHandler.handleException("Exception getting user from db by email and password", e);
         }
         User user = new RegistrationUserBuilder().build();
         try {
-            user = query.list().get(0);
-        } catch (NullPointerException e) {
+            user = query.getSingleResult();
+        } catch (Exception e) {
             ExceptionHandler.handleException("Exception getting user from db by email and password", e);
         }
         return user;

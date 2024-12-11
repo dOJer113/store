@@ -21,7 +21,7 @@ public class ClientDBManager {
         return DAOFactory.getInstance(dbType).getClientsDAO().getClients();
     }
 
-    protected void addClient(Client client) {
+    public void addClient(Client client) {
         DAOFactory.getInstance(dbType).getClientsDAO().insertClient(client);
     }
 

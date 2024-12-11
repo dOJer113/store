@@ -46,7 +46,7 @@ public class RegistrationUserBuilder implements UserBuilder {
             if (id != 0) {
                 user = new User(id, email, role, password);
             } else {
-                user = new User(id, email, role, password);
+                user = new User(email, role, password);
             }
             return user;
         }

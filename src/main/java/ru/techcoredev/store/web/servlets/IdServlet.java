@@ -25,7 +25,11 @@ public class IdServlet extends HttpServlet {
             DBType dbType = DBType.valueOf(req.getServletContext().getAttribute("dbType").toString());
             User user = new UserDBManager(dbType).getUsers().stream().filter(x -> x.getUserId() == id).findFirst().orElse(new RegistrationUserBuilder().build());
             List<Order> orders = new OrdersDBManager(dbType).getOrdersByUserId(id);
-            req.setAttribute("orders", orders);
+            if (orders.size() == 0) {
+                req.setAttribute("noOrders", "No orders");
+            } else {
+                req.setAttribute("orders", orders);
+            }
             req.setAttribute("user", user);
             req.getRequestDispatcher(JSPPages.USER_BY_ID.getUrl()).forward(req, resp);
         } catch (NullPointerException | NumberFormatException e) {

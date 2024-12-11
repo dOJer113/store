@@ -17,9 +17,16 @@
 <form action="${pageContext.request.contextPath}/users" method="get">
     <input type="submit" value="<%= resourcer.getString("admin.menu.show.users") %>">
 </form>
+<br>
 <form action="${pageContext.request.contextPath}/allOrders" method="get">
     <input type="submit" value="<%= resourcer.getString("admin.menu.show.orders") %>">
 </form>
+<br>
+<form action="${pageContext.request.contextPath}/addUser" method="get">
+    <input type="submit" value="<%= resourcer.getString("admin.menu.add") %>">
+</form>
+<br>
+
 <form action="${pageContext.request.contextPath}/id" method="get">
     <label for="id"><%= resourcer.getString("admin.menu.enter.id") %>:</label>
     <input type="number" id="id" name="id" required><br>

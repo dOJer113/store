@@ -7,15 +7,13 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import ru.techcoredev.store.ExceptionHandler;
 import ru.techcoredev.store.db.dbconnect.DAOinterfeices.ProductsDAO;
-import ru.techcoredev.store.db.dbconnect.pool.ConnectionPool;
 import ru.techcoredev.store.objects.Product;
-import ru.techcoredev.store.objects.ProductsInOrder;
 
 import java.util.List;
 
 public class HibernateProductsDAO implements ProductsDAO {
 
-    private static final Logger logger = LogManager.getLogger(ConnectionPool.class);
+    private static final Logger logger = LogManager.getLogger(HibernateProductsDAO.class);
     private static final String SELECT_QUERY = "From Product where id = :id";
     private static final String SELECT_PRODUCTS_BY_ID = "FROM Product WHERE id = :id";
 

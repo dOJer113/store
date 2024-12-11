@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebFilter(urlPatterns = {"/id", "/users", "/admin", "/allOrders", "/download"})
+@WebFilter(urlPatterns = {"/id", "/users", "/admin", "/allOrders", "/download", "/addUser"})
 public class AdminFilter extends HttpFilter {
     @Override
     protected void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain) throws IOException, ServletException {
@@ -20,11 +20,14 @@ public class AdminFilter extends HttpFilter {
             Role role = Role.valueOf(session.getAttribute("role").toString());
             if (role.equals(Role.ADMIN)) {
                 chain.doFilter(req, res);
+            } else {
+                session.setAttribute("exception", "У вас нет доступа к этой странице!");
+                res.sendRedirect("/login");
             }
         } catch (NullPointerException ignored) {
+            session.setAttribute("exception", "У вас нет доступа к этой странице!");
+            res.sendRedirect("/login");
         }
-        session.setAttribute("exception", "У вас нет доступа к этой странице!");
-        res.sendRedirect("/login");
     }
 }
 

@@ -38,6 +38,11 @@ public enum JSPPages {
             this.url = "/WEB-INF/view/order.jsp";
         }
     },
+    ADD_USER {
+        {
+            this.url = "/WEB-INF/view/addUser.jsp";
+        }
+    },
 
     SUCCESS {
         {
