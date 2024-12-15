@@ -3,6 +3,7 @@ package ru.techcoredev.store.db.dbconnect.DAOinterfeices;
 import ru.techcoredev.store.objects.Order;
 import ru.techcoredev.store.objects.ProductsInOrder;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface OrdersDAO {
@@ -19,5 +20,9 @@ public interface OrdersDAO {
     List<ProductsInOrder> getProductsByOrderNumber(int number);
 
     void updateOrder(Order order);
+
+    List<Order> getOrdersBeforeDate(LocalDate localDate);
+
+    void deleteOrdersBeforeDate(LocalDate localDate);
 
 }

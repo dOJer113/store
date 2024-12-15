@@ -10,9 +10,11 @@ import ru.techcoredev.store.objects.ProductsInOrder;
 import ru.techcoredev.store.objects.builders.Client;
 import ru.techcoredev.store.objects.builders.User;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 
 public class OrdersDBManager {
     private DBType dbType;
@@ -39,6 +41,10 @@ public class OrdersDBManager {
 
     public void deleteOrder(Order order) {
         DAOFactory.getInstance(dbType).getOrdersDAO().deleteOrder(order);
+    }
+
+    public void deleteOrdersBeforeDate(LocalDate localDate) {
+        DAOFactory.getInstance(dbType).getOrdersDAO().deleteOrdersBeforeDate(localDate);
     }
 
     public OrderDetails getAllInfoAboutOrder(int number) {

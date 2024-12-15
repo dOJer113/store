@@ -46,5 +46,13 @@
     </c:forEach>
 </table>
 
+<form action="${pageContext.request.contextPath}/ordersRemove" method="post">
+    <label for="deleteDate">
+        <%= resourcer.getString("orders.page.delete.label") %>
+    </label>
+    <input type="date" id="deleteDate" name="deleteDate" required/>
+    <input type="submit" value="<%= resourcer.getString("orders.page.delete.button") %>"/>
+</form>
+
 </body>
 </html>
