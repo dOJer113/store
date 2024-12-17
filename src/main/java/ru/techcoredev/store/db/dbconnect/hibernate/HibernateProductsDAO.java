@@ -27,18 +27,20 @@ public class HibernateProductsDAO implements ProductsDAO {
     }
 
     @Override
-    public void createProduct(Product product) {
+    public int createProduct(Product product) {
         logger.debug("Creating product with name: " + product.getName());
         Transaction transaction = null;
+        int id = 0;
         try (Session session = HibernateDAOFactory.getSession()) {
             transaction = session.beginTransaction();
-            session.save(product);
+            id = (int) session.save(product);
             transaction.commit();
             logger.debug("Product added");
         } catch (Exception e) {
             if (transaction != null) transaction.rollback();
             ExceptionHandler.handleException("Exception creating product ", e);
         }
+        return id;
     }
 
     @Override

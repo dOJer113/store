@@ -7,12 +7,10 @@
 %>
 <html>
 <head>
-    <title><%= resourcer.getString("admin.menu.title") %>
-    </title>
+    <title><%= resourcer.getString("admin.menu.title") %></title>
 </head>
 <body>
-<h2><%= resourcer.getString("admin.menu.title") %>
-</h2>
+<h2><%= resourcer.getString("admin.menu.title") %></h2>
 
 <form action="${pageContext.request.contextPath}/users" method="get">
     <input type="submit" value="<%= resourcer.getString("admin.menu.show.users") %>">
@@ -26,6 +24,10 @@
     <input type="submit" value="<%= resourcer.getString("admin.menu.add") %>">
 </form>
 <br>
+<form action="${pageContext.request.contextPath}/addProduct" method="get">
+    <input type="submit" value="<%= resourcer.getString("admin.menu.add.product") %>">
+</form>
+<br>
 
 <form action="${pageContext.request.contextPath}/id" method="get">
     <label for="id"><%= resourcer.getString("admin.menu.enter.id") %>:</label>
@@ -37,8 +39,7 @@
 </form>
 
 <% if (exception != null) { %>
-<p style="color: red;"><%= resourcer.getString("admin.menu.exception") %>: <%= exception %>
-</p>
+<p style="color: red;"><%= resourcer.getString("admin.menu.exception") %>: <%= exception %></p>
 <%
         session.removeAttribute("exception");
     }

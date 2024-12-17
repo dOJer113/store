@@ -43,6 +43,11 @@ public enum JSPPages {
             this.url = "/WEB-INF/view/addUser.jsp";
         }
     },
+    ADD_PRODUCT {
+        {
+            this.url = "/WEB-INF/view/addProduct.jsp";
+        }
+    },
 
     SUCCESS {
         {
