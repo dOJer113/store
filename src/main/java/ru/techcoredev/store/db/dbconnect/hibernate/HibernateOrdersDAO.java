@@ -9,6 +9,7 @@ import ru.techcoredev.store.ExceptionHandler;
 import ru.techcoredev.store.db.dbconnect.DAOinterfeices.OrdersDAO;
 import ru.techcoredev.store.objects.Order;
 import ru.techcoredev.store.objects.ProductsInOrder;
+import ru.techcoredev.store.objects.Status;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -23,6 +24,27 @@ public class HibernateOrdersDAO implements OrdersDAO {
     private static final String SELECT_ORDERS_NUMBERS_BEFORE_DATE = "FROM Order WHERE  registrationDate < :date";
     private static final String DELETE_ORDERS_BEFORE_DATE = "DELETE FROM Order o WHERE registrationDate < :date";
     private static final String DELETE_PRODUCTS_IN_ORDERS_BY_ORDER_NUMBER = "DELETE FROM ProductsInOrder WHERE orderNumber IN (:orderNumbers)";
+
+    @Override
+    public void changeOrderStatus(int orderNumber, Status status) {
+        logger.debug("Updating order status to " + status + " for order number: " + orderNumber);
+        Transaction transaction = null;
+        try (Session session = HibernateDAOFactory.getSession()) {
+            transaction = session.beginTransaction();
+            Order order = session.get(Order.class, orderNumber);
+            if (order == null) {
+                logger.error("Order with number " + orderNumber + " not found");
+            }
+            order.setStatus(status);
+            session.update(order);
+            transaction.commit();
+            logger.debug("Order status was updated to " + status + " for order number: " + orderNumber);
+        } catch (Exception e) {
+            if (transaction != null) transaction.rollback();
+            ExceptionHandler.handleException("Exception updating order status", e);
+        }
+
+    }
 
     @Override
     public void deleteOrdersBeforeDate(LocalDate localDate) {

@@ -7,26 +7,26 @@
 %>
 <html>
 <head>
-    <title><%= resourcer.getString("orders.page.title") %>
-    </title>
+    <title><%= resourcer.getString("orders.page.title") %></title>
+    <style>
+        .status-change-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
 </head>
 <body>
-<h2><%= resourcer.getString("orders.page.title") %>
-</h2>
+<h2><%= resourcer.getString("orders.page.title") %></h2>
 <table border="1">
     <tr>
-        <th><%= resourcer.getString("orders.page.table.number") %>
-        </th>
-        <th><%= resourcer.getString("orders.page.table.userid") %>
-        </th>
-        <th><%= resourcer.getString("orders.page.table.registrationdate") %>
-        </th>
-        <th><%= resourcer.getString("orders.page.table.closingdate") %>
-        </th>
-        <th><%= resourcer.getString("orders.page.table.status") %>
-        </th>
-        <th><%= resourcer.getString("orders.page.table.action") %>
-        </th>
+        <th><%= resourcer.getString("orders.page.table.number") %></th>
+        <th><%= resourcer.getString("orders.page.table.userid") %></th>
+        <th><%= resourcer.getString("orders.page.table.registrationdate") %></th>
+        <th><%= resourcer.getString("orders.page.table.closingdate") %></th>
+        <th><%= resourcer.getString("orders.page.table.status") %></th>
+        <th><%= resourcer.getString("orders.page.table.action") %></th>
+        <th><%= resourcer.getString("orders.page.table.order_status_change") %></th>
     </tr>
     <jsp:useBean id="orders" scope="request" type="java.util.List"/>
     <c:forEach var="order" items="${orders}">
@@ -41,6 +41,27 @@
                     <input type="hidden" name="orderNumber" value="${order.number}"/>
                     <input type="submit" value="<%= resourcer.getString("orders.page.table.action.details") %>"/>
                 </form>
+            </td>
+            <td>
+                <c:choose>
+                    <c:when test="${order.status == 'IN_PROCESSING'}">
+                        <div class="status-change-buttons">
+                            <form action="${pageContext.request.contextPath}/changeOrderStatus" method="post">
+                                <input type="hidden" name="orderNumber" value="${order.number}"/>
+                                <input type="hidden" name="newStatus" value="COMPLETED"/>
+                                <input type="submit" value="<%= resourcer.getString("orders.page.table.order_status_change.accept") %>"/>
+                            </form>
+                            <form action="${pageContext.request.contextPath}/changeOrderStatus" method="post">
+                                <input type="hidden" name="orderNumber" value="${order.number}"/>
+                                <input type="hidden" name="newStatus" value="REJECTED"/>
+                                <input type="submit" value="<%= resourcer.getString("orders.page.table.order_status_change.reject") %>"/>
+                            </form>
+                        </div>`
+                    </c:when>
+                    <c:otherwise>
+                        <%= resourcer.getString("orders.page.table.order_status_change.no_actions") %>
+                    </c:otherwise>
+                </c:choose>
             </td>
         </tr>
     </c:forEach>
